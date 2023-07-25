@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOC_TP_CH_Crouch_Movement
+  m_Controller: {fileID: 9100000, guid: 0b3d86546a997c2458186b0c654566a7, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -623603649343465320, guid: f1c3cbe603e646046b1c9172d34a5d40,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: a54aaea47d5d6d54db6f581b36654239,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 96d995d618fdb5e4387db3bc59d76f14,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: a2fb04159862f0141ba7fd3d291e770a,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: dcfe9123abf893044a863c17db79f167,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: d3005bcd8cf39ab41acb91ce2e451378,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: aa5ca81c506fb114cb1c183075128998,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 03850724944a0294f892efe28a658fde,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: d7618e61adb02564d955b401929bb3d5,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: f8bfe64acad4ebc4f9502e787a84f8a0,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 11f504b18541c47458041e25ca605c44,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 4cf73bc70ac5c854594739d9bfa9d716,
+      type: 3}

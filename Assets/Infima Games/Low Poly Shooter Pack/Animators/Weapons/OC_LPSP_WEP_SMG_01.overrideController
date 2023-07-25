@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OC_LPSP_WEP_SMG_01
+  m_Controller: {fileID: 9100000, guid: 3f50821f7ef123c45bf544bf7626e7e0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400002, guid: bfda376b0f658a748870ea8f7c2c7c03, type: 3}
+    m_OverrideClip: {fileID: 3761467158165387994, guid: b7119bc2d9d98b6488a7cc590f14ba51,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400004, guid: bfda376b0f658a748870ea8f7c2c7c03, type: 3}
+    m_OverrideClip: {fileID: 7052747300030112887, guid: b7119bc2d9d98b6488a7cc590f14ba51,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400010, guid: bfda376b0f658a748870ea8f7c2c7c03, type: 3}
+    m_OverrideClip: {fileID: 2879672407172169562, guid: b7119bc2d9d98b6488a7cc590f14ba51,
+      type: 3}

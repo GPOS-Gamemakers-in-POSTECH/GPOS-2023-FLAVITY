@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b628253a8cb84ba0be750d5c311a03dc, type: 3}
+  m_Name: SO_LD_Item
+  m_EditorClassIdentifier: 
+  itemAiming: {fileID: 11400000, guid: 0270615e59446d04993902c2f9ee96ba, type: 2}
+  itemStanding: {fileID: 11400000, guid: 46e3970cd8ed9144381eb2df3c64a3b3, type: 2}
+  cameraAiming: {fileID: 11400000, guid: 0535a7a2a95f7c949b072f3707e8139d, type: 2}
+  cameraStanding: {fileID: 11400000, guid: 0535a7a2a95f7c949b072f3707e8139d, type: 2}

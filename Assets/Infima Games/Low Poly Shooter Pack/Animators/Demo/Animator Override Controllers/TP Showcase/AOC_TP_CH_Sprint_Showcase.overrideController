@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOC_TP_CH_Sprint_Showcase
+  m_Controller: {fileID: 9100000, guid: e4c3742f9daa5814d956a432b42463c3, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 0ce5ca74259abcb4184b3ec8ebbaeac3,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: f91f6232817ce984db99cb780ff7b3c7,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: d393efebdb147404785c1878f96c1173,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 09facd5cb0fb07e44919b765158afbf0,
+      type: 3}

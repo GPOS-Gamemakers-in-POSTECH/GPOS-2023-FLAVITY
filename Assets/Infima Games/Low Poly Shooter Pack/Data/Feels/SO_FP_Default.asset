@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdbbec5bb3d96b468183b8e76de3af7, type: 3}
+  m_Name: SO_FP_Default
+  m_EditorClassIdentifier: 
+  cameraFeel: {fileID: 11400000, guid: ba3570f17ab101b4b9feec2c73ca1a21, type: 2}
+  itemFeel: {fileID: 11400000, guid: ab00933608122e145b67b6b7cff5e1d1, type: 2}

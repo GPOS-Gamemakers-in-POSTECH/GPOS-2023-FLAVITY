@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9aed70918114183b734ff5a1b5f4593, type: 3}
+  m_Name: SO_IO_Handgun_03
+  m_EditorClassIdentifier: 
+  standingLocation: {x: 0, y: 0, z: 0}
+  standingRotation: {x: 0, y: -3, z: 0}
+  aimingLocation: {x: 0, y: 0.01, z: 0}
+  aimingRotation: {x: 0, y: 0, z: 0}
+  runningLocation: {x: 0.06, y: 0.095, z: 0.01}
+  runningRotation: {x: 0, y: 0, z: 0}
+  crouchingLocation: {x: 0, y: 0, z: 0}
+  crouchingRotation: {x: 0, y: -15, z: 0}
+  actionLocation: {x: 0.085, y: -0.01, z: -0.1}
+  actionRotation: {x: -15, y: 0, z: -5}

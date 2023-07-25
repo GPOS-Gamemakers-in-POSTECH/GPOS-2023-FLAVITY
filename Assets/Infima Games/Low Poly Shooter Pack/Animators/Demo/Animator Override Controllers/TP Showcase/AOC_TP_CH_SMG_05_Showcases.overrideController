@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOC_TP_CH_SMG_05_Showcases
+  m_Controller: {fileID: 9100000, guid: 49e9a3880bf9f9643baba6ccf48de183, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 8ab37340c778b944b93315ac17f67870,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 4df5b7131b5c415408368a5e2e8d599b,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: aa60affc86bc7104fb54f2237ffa62b4,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 00bf87c7d792fe14d97cba2c3c7010d1,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 8c316f349b444a7439d11ecb8168587b,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 5c00a6614dedb864c85b3b3bfa3c3e56,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: a6e65a8168ee7f54c80a2a43fafe9d04,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: a3901bc5ba16b4a4da1c6bf7705c6b09,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: f9d1be03d67f16d46beabc9beb7d5465,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: f36dbcdfe3b34cf41804bb155b8f8781,
+      type: 3}
+  - m_OriginalClip: {fileID: -623603649343465320, guid: 7a2092006da221f4d8b360a0c43f693b,
+      type: 3}
+    m_OverrideClip: {fileID: -623603649343465320, guid: 82d11cc294177e741ace6226146e6868,
+      type: 3}
