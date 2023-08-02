@@ -40,12 +40,14 @@ public class Explosive : DamagableObstacle
     // Update is called once per frame
     void Update()
     {
+        
         explosionDelay = Random.Range(explosionMinDelay, explosionMaxDelay);
 
         if (health == 0)
         {
             if (!routineStarted)
             {
+                
                 StartCoroutine(Explode());
                 routineStarted = true;
             }

@@ -9,6 +9,8 @@ public class Status : MonoBehaviour
     [SerializeField]
     private float runSpeed;
 
+    private int health;
+
     public float WalkSpeed => walkSpeed;
     public float RunSpeed => runSpeed;
 }
