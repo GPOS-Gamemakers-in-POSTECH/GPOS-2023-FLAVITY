@@ -3,9 +3,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("Fire Effects")]
+    [SerializeField]
+    private GameObject muzzleFlashEffect;
+
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip audioClipTakeOutWeapon; // Takeoutweapon sound
+    [SerializeField]
+    private AudioClip audioclipFire;
 
     [Header("Weapon Setting")]
     [SerializeField]
@@ -14,19 +20,20 @@ public class Weapon : MonoBehaviour
     private float lastAttackTime = 0;
 
     private AudioSource audioSource; // soundplay component
-    private Animation animator;
+    private PlayerAnimation animator;
 
     //This is called at first activation
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        animator = GetComponentInParent<Animation>();
+        animator = GetComponentInParent<PlayerAnimation>();
     }
 
     // This is called whenever activated
     private void OnEnable()
     {
         PlaySound(audioClipTakeOutWeapon);
+        muzzleFlashEffect.SetActive(false);
     }
 
     public void StartWeaponACtion(int type = 0)
@@ -39,7 +46,7 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                //OnAttack();
+                OnAttack();
             }
         }
     }
@@ -55,26 +62,40 @@ public class Weapon : MonoBehaviour
     {
         while(true)
         {
-            //OnAttack();
+            OnAttack();
 
             yield return null;
         }
     }
 
-    // public void OnAttack()
-    // {
-    //     if(Time.time - lastAttackTime > weaponsetting.attackRate)
-    //     {
-    //         if(animator.MoveSpeed() > 0.5f)
-    //         {
-    //             return;
-    //         }
-    //         lastAttackTime = Time.time;
+    public void OnAttack()
+    {
+        if(Time.time - lastAttackTime > weaponsetting.attackRate)
+        {
+            if(animator.MoveSpeed > 0.5f)
+            {
+                return;
+            }
+            lastAttackTime = Time.time;
 
-    //         animator.Play("Fire", -1,0);
-    //     }
+            animator.Play("Fire", -1,0);
 
-    // }
+            StartCoroutine("OnMuzzleFlashEffect");
+
+            PlaySound(audioclipFire);
+        }
+
+    }
+
+    private IEnumerator OnMuzzleFlashEffect()
+    {
+        muzzleFlashEffect.SetActive(true);
+
+        yield return new WaitForSeconds(weaponsetting.attackRate * 0.3f);
+
+        muzzleFlashEffect.SetActive(false);
+    }
+
     // Take Clip sound
     private void PlaySound(AudioClip clip)
     {

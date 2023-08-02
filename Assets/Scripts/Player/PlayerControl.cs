@@ -8,9 +8,17 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private KeyCode KeyCodeJump = KeyCode.Space;
 
+    [Header("Audio Clips")]
+    [SerializeField]
+    private AudioClip audioClipWalk;
+    [SerializeField]
+    private AudioClip audioClipRun;
+
     private MouseControl mouse; // mouse control variable
     private Movement movement; // player movement control variable
     private Status status;
+    private PlayerAnimation animator;
+    private AudioSource audioSource;
     private Weapon weapon;
     //This is called at first activation
     private void Awake()
@@ -22,6 +30,8 @@ public class PlayerControl : MonoBehaviour
         movement = GetComponent<Movement>();
         status = GetComponent<Status>();
         weapon = GetComponentInChildren<Weapon>();
+        animator = GetComponent<PlayerAnimation>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     // This is called whenever activated
@@ -31,6 +41,7 @@ public class PlayerControl : MonoBehaviour
         // Debug.Log("why?");
         UpdateMove();
         UpdateJump();
+        UpdateWeaponAction();
     }
 
     // call mouse update rotate method using mouse input
@@ -56,6 +67,22 @@ public class PlayerControl : MonoBehaviour
             if(z>0) isRun = Input.GetKey(keyCodeRun);
 
             movement.MoveSpeed = isRun == true ? status.RunSpeed : status.WalkSpeed;
+            animator.MoveSpeed = isRun == true ? 1 : 0.5f;
+            audioSource.clip = isRun == true ? audioClipRun : audioClipWalk;
+
+            if(audioSource.isPlaying == false)
+            {
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
+        else{
+            movement.MoveSpeed = 0;
+            animator.MoveSpeed = 0;
+
+            if(audioSource.isPlaying == true){
+                audioSource.Stop();
+            }
         }
         movement.MoveTo(new Vector3(x,0,z));
     }
@@ -69,6 +96,7 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateWeaponAction()
     {
+        Debug.Log("123");
         if(Input.GetMouseButtonDown(0))
         {
             weapon.StartWeaponACtion();
