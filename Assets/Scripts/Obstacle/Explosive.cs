@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Explosive : DamagableObstacle
 {
     private float explosionDelay;
@@ -33,6 +34,7 @@ public class Explosive : DamagableObstacle
         // Set valid damage type
         validDamageType[NormalDamageType] = true;
         validDamageType[ExplosionDamageType] = true;
+
     }
 
     // Update is called once per frame
@@ -65,7 +67,7 @@ public class Explosive : DamagableObstacle
 
         // Spawn the damaged explosive prefab
         Instantiate(damagedExplosivePrefab, transform.position, transform.rotation);
-
+        // damagedExplosivePrefab.GetComponent<ExplosionScript>().enabled = true;
         // Give physical effect on objects in range of explosion radius.
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
