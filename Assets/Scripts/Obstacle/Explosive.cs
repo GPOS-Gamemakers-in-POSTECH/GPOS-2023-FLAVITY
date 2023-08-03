@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using InfimaGames.LowPolyShooterPack.Legacy;
 
 public class Explosive : DamagableObstacle
 {
@@ -9,10 +9,8 @@ public class Explosive : DamagableObstacle
     private bool routineStarted = false;
 
     [Header("Prefabs")]
-    public Transform explosionPrefab;
-    public Transform damagedExplosivePrefab;
-    //  = GameObject.Find("Assets/Infima Games/Low Poly Shooter Pack/Prefabs/Effects/Explosions/P_EXP_Barrel.prefab"); 
-    //  = GameObject.Find("Assets/Infima Games/Low Poly Shooter Pack/Prefabs/Damageables/P_LPSP_DMG_Barrel_Destroyed.prefab");
+    public GameObject explosionPrefab;
+    public GameObject damagedExplosivePrefab;
 
     [Header("Explosion Delay Options")]
     public float explosionMinDelay = 0.05f;
@@ -35,6 +33,8 @@ public class Explosive : DamagableObstacle
         validDamageType[NormalDamageType] = true;
         validDamageType[ExplosionDamageType] = true;
 
+        // explosionPrefab = GameObject.Find("Assets/Prefabs/ExplosionEffect.prefab");
+        // damagedExplosivePrefab = GameObject.Find("Assets/Infima Games/Low Poly Shooter Pack/Prefabs/Damageables/P_LPSP_DMG_Barrel_Destroyed.prefab");
     }
 
     // Update is called once per frame
@@ -67,9 +67,10 @@ public class Explosive : DamagableObstacle
         // Wait for set amount of delay
         yield return new WaitForSeconds(explosionDelay);
 
+        Debug.Log(damagedExplosivePrefab);
         // Spawn the damaged explosive prefab
         Instantiate(damagedExplosivePrefab, transform.position, transform.rotation);
-        // damagedExplosivePrefab.GetComponent<ExplosionScript>().enabled = true;
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         // Give physical effect on objects in range of explosion radius.
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, explosionRadius);
@@ -89,14 +90,16 @@ public class Explosive : DamagableObstacle
                 hit.gameObject.GetComponent<DamagableObstacle>().receiveDamage(ExplosionDamageType, explosionDamage);
         }
 
-        // Raycast downwards to check the ground tag
-        RaycastHit checkGround;
-        if (Physics.Raycast(transform.position, Vector3.down, out checkGround, 50))
-        {
-            // Instantiate explosion prefab at hit position
-            Instantiate(explosionPrefab, checkGround.point,
-                Quaternion.FromToRotation(Vector3.forward, checkGround.normal));
-        }
+        /*
+          // Raycast downwards to check the ground tag
+         RaycastHit checkGround;
+         if (Physics.Raycast(transform.position, Vector3.down, out checkGround, 50))
+         {
+             // Instantiate explosion prefab at hit position
+             Instantiate(explosionPrefab, checkGround.point,
+                 Quaternion.FromToRotation(Vector3.forward, checkGround.normal));
+         }
+         */
 
         Destroy(gameObject);
     }

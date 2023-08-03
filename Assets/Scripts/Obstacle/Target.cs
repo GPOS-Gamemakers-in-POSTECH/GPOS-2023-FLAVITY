@@ -5,7 +5,7 @@ using UnityEngine;
 public class Target : DamagableObstacle
 {
     private int hitCount = 0;
-    private Queue<int> hitQueue;
+    private Queue<int> hitQueue = new Queue<int>();
     public int doorOpenDelay = 5;
     public int target_id;
     public GameObject linkedDoor;
@@ -36,7 +36,8 @@ public class Target : DamagableObstacle
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        
+         if (health == 0)
         {
             StartCoroutine(ManageHitQueue());
             resetHealth();
