@@ -6,6 +6,7 @@ public class Door : DamagableObstacle
 {
     public int door_id;
     public bool isOpen = false;
+    public float currentAngle = 0f;
 
     public void Awake()
     {
@@ -37,5 +38,11 @@ public class Door : DamagableObstacle
     public void close()
     {
         isOpen = false;
+    }
+
+    private void rotateAroundAxis(int destAngle)
+    {
+        Vector3 size = gameObject.GetComponent<MeshCollider>().bounds.size;
+        // Vector3 axis = new Vector3(transform.x +  * size.y)
     }
 }
