@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4592675239519125700}
   - component: {fileID: 2622560659340727660}
   m_Layer: 0
-  m_Name: Tile Target
+  m_Name: Tile Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0.25, z: 5}
+  m_LocalScale: {x: 15, y: 7.5, z: 7.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 691eb771090aea74ca787a8665220924, type: 2}
+  - {fileID: 2100000, guid: c2ca8ab72b40bf145a82aac64b2a66ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
