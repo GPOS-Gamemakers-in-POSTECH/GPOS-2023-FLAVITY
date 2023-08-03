@@ -276,14 +276,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.49803925, b: 0.15294118, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b88b395099cdb7419f565b32afb90cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec2fbbabd9e30224da93726d82e0aa31, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1404,8 +1404,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: ec2fbbabd9e30224da93726d82e0aa31,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ec2fbbabd9e30224da93726d82e0aa31, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1425,7 +1426,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 853300203}
+        m_TargetAssemblyTypeName: SliderValue, Assembly-CSharp
+        m_MethodName: valueUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &853300199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1450,7 @@ GameObject:
   - component: {fileID: 853300200}
   - component: {fileID: 853300202}
   - component: {fileID: 853300201}
+  - component: {fileID: 853300203}
   m_Layer: 5
   m_Name: Size_Text
   m_TagString: Untagged
@@ -1483,7 +1497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123
+  m_text: 0%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1560,6 +1574,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853300199}
   m_CullTransparentMesh: 1
+--- !u!114 &853300203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853300199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6cd89d3630b61429e2457a0393fdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max: 100
 --- !u!1 &857725898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,6 +2410,7 @@ GameObject:
   - component: {fileID: 1170763545}
   - component: {fileID: 1170763547}
   - component: {fileID: 1170763546}
+  - component: {fileID: 1170763548}
   m_Layer: 5
   m_Name: Size_Text
   m_TagString: Untagged
@@ -2429,7 +2457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123
+  m_text: 0%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2506,6 +2534,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170763544}
   m_CullTransparentMesh: 1
+--- !u!114 &1170763548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170763544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6cd89d3630b61429e2457a0393fdb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max: 100
 --- !u!1 &1279709457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,8 +2921,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: ec2fbbabd9e30224da93726d82e0aa31,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ec2fbbabd9e30224da93726d82e0aa31, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2901,7 +2943,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1170763548}
+        m_TargetAssemblyTypeName: SliderValue, Assembly-CSharp
+        m_MethodName: valueUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1585779960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,14 +3215,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.49803925, b: 0.15294118, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b88b395099cdb7419f565b32afb90cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec2fbbabd9e30224da93726d82e0aa31, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

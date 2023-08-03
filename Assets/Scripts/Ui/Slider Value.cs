@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class SliderValue : MonoBehaviour
 {
-    Text valueText;
+    TextMeshProUGUI valueText;
     public int Max;
     
     void Start()
     {
-        valueText = GetComponent<Text>();
+        valueText = GetComponent<TextMeshProUGUI>();
     }
 
     public void valueUpdate(float value)
     {
-        valueText.text = (value * Max);
+        valueText.text = (int)(value * Max) + "%";
     }
 }
