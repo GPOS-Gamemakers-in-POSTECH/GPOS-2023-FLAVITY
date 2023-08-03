@@ -36,7 +36,8 @@ public class Target : DamagableObstacle
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        /*
+         if (health == 0)
         {
             StartCoroutine(ManageHitQueue());
             resetHealth();
@@ -52,6 +53,8 @@ public class Target : DamagableObstacle
                 linkedDoor.GetComponent<Door>().close();
             }
         }
+         
+         */
     }
 
     private IEnumerator ManageHitQueue()
