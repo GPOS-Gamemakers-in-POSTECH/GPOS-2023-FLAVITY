@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6337595317819530363}
   - component: {fileID: 8684659215041951186}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bb4717bea38fa4e9921b13e8e9adb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 3
   jumpForce: 10
   gravity: -20
 --- !u!114 &6380543934937574971
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5305e696a68354aaf9a4ba550992b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 8
+  walkSpeed: 3
   runSpeed: 15
 --- !u!114 &6337595317819530363
 MonoBehaviour:
