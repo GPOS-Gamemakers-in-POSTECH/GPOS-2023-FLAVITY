@@ -8,7 +8,8 @@ public class MouseSlider : SliderValue
     public override void Apply()
     {
         base.Apply();
-        MouseControl.rotCamXAxisSpeed = saved * 100 / max;
-        MouseControl.rotCamYAxisSpeed = saved / 50;
+        MouseControl.rotCamXAxisSpeed = saved / 100 * max;
+        MouseControl.rotCamYAxisSpeed = saved / 100 * max;
+        Debug.Log(MouseControl.rotCamXAxisSpeed);
     }
 }
