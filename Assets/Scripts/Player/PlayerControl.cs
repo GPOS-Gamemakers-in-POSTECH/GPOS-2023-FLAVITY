@@ -37,11 +37,13 @@ public class PlayerControl : MonoBehaviour
     // This is called whenever activated
     private void Update()
     {
-        UpdateRotate();
-        // Debug.Log("why?");
-        UpdateMove();
-        UpdateJump();
-        UpdateWeaponAction();
+        if (!PauseControl.GameIsPaused)
+        {
+            UpdateRotate();
+            UpdateMove();
+            UpdateJump();
+            UpdateWeaponAction();
+        }
     }
 
     // call mouse update rotate method using mouse input
@@ -96,7 +98,6 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateWeaponAction()
     {
-        Debug.Log("123");
         if(Input.GetMouseButtonDown(0))
         {
             weapon.StartWeaponACtion();

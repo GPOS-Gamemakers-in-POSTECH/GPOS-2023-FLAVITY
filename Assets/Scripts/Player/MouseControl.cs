@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class MouseControl : MonoBehaviour
 {
-    [SerializeField]
-    private float rotCamXAxisSpeed = 5;
-    [SerializeField]
-    private float rotCamYAxisSpeed = 3;
+    public static float rotCamXAxisSpeed = 1;
+    public static float rotCamYAxisSpeed = 1;
 
     private float limitMinX = -80;
-    private float limitMaxX = 50;
+    private float limitMaxX = 90;
     private float eulerAngleX;
     private float eulerAngleY;
 
