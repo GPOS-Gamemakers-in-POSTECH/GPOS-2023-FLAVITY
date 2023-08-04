@@ -10,6 +10,5 @@ public class MouseSlider : SliderValue
         base.Apply();
         MouseControl.rotCamXAxisSpeed = saved / 100 * max;
         MouseControl.rotCamYAxisSpeed = saved / 100 * max;
-        Debug.Log(MouseControl.rotCamXAxisSpeed);
     }
 }
