@@ -8,17 +8,9 @@ public class PauseControl : MonoBehaviour
     [SerializeField]
     private KeyCode keyCodeEsc = KeyCode.Escape;
 
-    private int rotCamXAxisSpeed_size = 2;
-    private int rotCamYAxisSpeed_size = 2;
-
     public static bool GameIsPaused = false;
     public GameObject PauseObj;
     public GameObject OptionObj;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -50,7 +42,11 @@ public class PauseControl : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void MouseValue()
-    {
+    public void Main() {
+        
+    }
+
+    public void Quit() {
+        
     }
 }
