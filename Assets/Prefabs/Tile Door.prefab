@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3620357931797698031}
+  - {fileID: 2095480767889007958}
   - {fileID: 572210666231290480}
   - {fileID: 5453224473003744937}
   m_Father: {fileID: 0}
@@ -260,12 +260,12 @@ PrefabInstance:
     - target: {fileID: 680097058345432037, guid: 1a20c02890f5b9a42982beebd6a9463c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3367978543777774785, guid: 1a20c02890f5b9a42982beebd6a9463c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3367978543777774785, guid: 1a20c02890f5b9a42982beebd6a9463c,
         type: 3}
@@ -347,7 +347,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a20c02890f5b9a42982beebd6a9463c, type: 3}
---- !u!4 &3620357931797698031 stripped
+--- !u!4 &2095480767889007958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8898978697808183420, guid: 1a20c02890f5b9a42982beebd6a9463c,
     type: 3}
