@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Infima Games/Low Poly Shooter Pack/Scenes/S_Content_Overview.unity
+    path: Assets/External/Infima Games/Low Poly Shooter Pack/Scenes/S_Content_Overview.unity
     guid: 63fdc04a097eb0b4ba4af78a98dac40d
   - enabled: 0
-    path: Assets/Infima Games/Low Poly Shooter Pack/Scenes/S_Demo_Defense.unity
+    path: Assets/External/Infima Games/Low Poly Shooter Pack/Scenes/S_Demo_Defense.unity
     guid: 5622a2e7311e3e743b6d99e44feb8998
   - enabled: 0
-    path: Assets/Infima Games/Low Poly Shooter Pack/Scenes/S_Demo_Desert.unity
+    path: Assets/External/Infima Games/Low Poly Shooter Pack/Scenes/S_Demo_Desert.unity
     guid: 8b18da02b00ef7f48b1c4cd497671301
   - enabled: 0
-    path: Assets/Infima Games/Low Poly Shooter Pack/Scenes/S_Demo_Warzone.unity
+    path: Assets/External/Infima Games/Low Poly Shooter Pack/Scenes/S_Demo_Warzone.unity
     guid: 93c22658146787c41b6cf6e8e031097c
   - enabled: 1
     path: Assets/Scenes/Title.unity
