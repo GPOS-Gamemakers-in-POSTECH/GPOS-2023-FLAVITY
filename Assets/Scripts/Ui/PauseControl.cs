@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseControl : MonoBehaviour
 {
@@ -43,10 +44,15 @@ public class PauseControl : MonoBehaviour
     }
 
     public void Main() {
-        
+        SceneManager.LoadScene("Title");
     }
 
-    public void Quit() {
-        
+    public void Quit()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }

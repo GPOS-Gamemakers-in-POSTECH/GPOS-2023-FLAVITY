@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameQuit : MonoBehaviour
+public class TitleUIControl : MonoBehaviour
 {
-    // Quit Game
+    // New Game Button - Change Scene
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene("Map");
+    }
+
+    // Quit Button - Quit Game
     public void Quit()
     {
         #if UNITY_EDITOR
