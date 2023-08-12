@@ -20,6 +20,13 @@ public class PlayerControl : MonoBehaviour
     private PlayerAnimation animator;
     private AudioSource audioSource;
     private Weapon weapon;
+
+    private GameObject arm;
+    private GameObject mainCamera;
+    private Vector3 armInitialLocalPosition;
+    private Vector3 mainCameraInitialLocalPosition;
+
+    public float dihedralAngle;
     //This is called at first activation
     private void Awake()
     {
@@ -32,6 +39,14 @@ public class PlayerControl : MonoBehaviour
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<PlayerAnimation>();
         audioSource = GetComponent<AudioSource>();
+
+        arm = transform.Find("(Legacy)arms_assault_rifle_01").gameObject;
+        mainCamera = transform.Find("Main Camera").gameObject;
+
+        armInitialLocalPosition = arm.transform.localPosition;
+        mainCameraInitialLocalPosition = mainCamera.transform.localPosition;
+
+        dihedralAngle = 90f;
     }
     
     // This is called whenever activated
@@ -52,7 +67,12 @@ public class PlayerControl : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        mouse.UpdateRotate(mouseX,mouseY);
+        mouse.UpdateRotate(mouseX,mouseY, dihedralAngle);
+
+        Debug.Log(string.Format("arm : {0}, maincam : {1}", arm.transform.localEulerAngles, mainCamera.transform.localEulerAngles));
+        
+        
+
     }
 
     //call movement update method
