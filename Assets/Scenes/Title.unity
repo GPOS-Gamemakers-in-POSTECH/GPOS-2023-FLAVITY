@@ -2382,10 +2382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saved: 50
-  max: 1
-  musicsources:
-  - {fileID: 0}
-  - {fileID: 0}
+  max: 40
+  audioMixer: {fileID: 24100000, guid: e72f2871aae218d4aa2e3dc469ff9c54, type: 2}
 --- !u!114 &1488861692
 MonoBehaviour:
   m_ObjectHideFlags: 0

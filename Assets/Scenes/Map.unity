@@ -1270,11 +1270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9271b9cde2a494391b6afe518e20d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saved: 50
-  max: 1
-  musicsources:
-  - {fileID: 0}
-  - {fileID: 0}
+  max: 40
+  audioMixer: {fileID: 24100000, guid: e72f2871aae218d4aa2e3dc469ff9c54, type: 2}
 --- !u!114 &69241495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2311,7 +2308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a29d203d893f9b4097cca1587df11b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saved: 50
   max: 2
 --- !u!114 &112577117
 MonoBehaviour:
@@ -4115,7 +4111,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 332976641}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1787450236}
+        m_TargetAssemblyTypeName: PauseControl, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &332976641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5755,7 +5763,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -8451,7 +8459,7 @@ RectTransform:
   m_Father: {fileID: 608490388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.4949495, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8561,11 +8569,23 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6832303473215830716, guid: 6b58359160e12bd4681d1f4742034c6a,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -9135562604974931781, guid: e72f2871aae218d4aa2e3dc469ff9c54,
+        type: 2}
     - target: {fileID: 8392691103422449248, guid: 6b58359160e12bd4681d1f4742034c6a,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8684659215041951186, guid: 6b58359160e12bd4681d1f4742034c6a,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6587589447614584009, guid: e72f2871aae218d4aa2e3dc469ff9c54,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15764,8 +15784,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1385232711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.4949495, y: 0}
+  m_AnchorMax: {x: 0.4949495, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16898,7 +16918,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1493952002}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1787450236}
+        m_TargetAssemblyTypeName: PauseControl, Assembly-CSharp
+        m_MethodName: Main
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1493952002
 MonoBehaviour:
   m_ObjectHideFlags: 0
