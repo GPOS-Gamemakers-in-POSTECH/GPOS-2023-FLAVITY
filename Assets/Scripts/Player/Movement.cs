@@ -13,8 +13,7 @@ public class Movement : MonoBehaviour
     private float jumpForce;
     [SerializeField]
     private float gravity;
-
-
+    private MouseControl mouseControl;
 
     public float MoveSpeed
     {
@@ -24,46 +23,48 @@ public class Movement : MonoBehaviour
 
     private CharacterController characterController;
     private PlayerControl playerControl;
-    
+    private RaycastHit hit;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         playerControl = GetComponent<PlayerControl>();
+        mouseControl = GetComponent<MouseControl>();
     }
 
     void Update()
     {
         float dihedralAngle = playerControl.dihedralAngle;
-        if (!characterController.isGrounded) // TODO Error line
+
+        if (!Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 2)) // TODO Error line
         {
-            moveForce.x += - gravity * Time.deltaTime * Mathf.Abs(Mathf.Sin(dihedralAngle * Mathf.PI / 180));
-            moveForce.y += gravity * Time.deltaTime * Mathf.Abs(Mathf.Cos(dihedralAngle * Mathf.PI / 180));
+            moveForce.x += - gravity * Time.deltaTime * Mathf.Sin(dihedralAngle * Mathf.PI / 180);
+            moveForce.y += gravity * Time.deltaTime * Mathf.Cos(dihedralAngle * Mathf.PI / 180);
+            
         }
-        moveForce.x = 0;
-        moveForce.y = 0;
-        Debug.Log(moveForce);
         characterController.Move(moveForce * Time.deltaTime);
     }
 
     public void MoveTo(Vector3 direction)
     {
         float dihedralAngle = playerControl.dihedralAngle;
-        direction = transform.rotation * new Vector3(direction.x, direction.y , direction.z);
+        
+        direction = mouseControl.cameraTransform.rotation * new Vector3(direction.x, direction.y , direction.z);
         moveForce = new Vector3(
-            direction.x * moveSpeed * Mathf.Cos(dihedralAngle * Mathf.PI / 180) + moveForce.x * Mathf.Sin(dihedralAngle * Mathf.PI / 180), 
-            direction.y * moveSpeed * Mathf.Sin(dihedralAngle * Mathf.PI / 180) + moveForce.y * Mathf.Cos(dihedralAngle * Mathf.PI / 180), 
+            direction.x * moveSpeed * Mathf.Abs(Mathf.Cos(dihedralAngle * Mathf.PI / 180)) + moveForce.x * Mathf.Abs(Mathf.Sin(dihedralAngle * Mathf.PI / 180)), 
+            direction.y * moveSpeed * Mathf.Abs(Mathf.Sin(dihedralAngle * Mathf.PI / 180)) + moveForce.y * Mathf.Abs(Mathf.Cos(dihedralAngle * Mathf.PI / 180)), 
             direction.z * moveSpeed
             );
-        Debug.Log(string.Format("cos: {0}, sin: {1}", Mathf.Cos(dihedralAngle * Mathf.PI / 180), Mathf.Sin(dihedralAngle * Mathf.PI / 180)));
+        
     }
 
     public void Jump()
     {
         float dihedralAngle = playerControl.dihedralAngle;
-        if (characterController.isGrounded)  // TODO Error line
+        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 2))  // TODO Error line
         {
-            moveForce.x = jumpForce * Mathf.Abs(Mathf.Sin(dihedralAngle * Mathf.PI / 180));
-            moveForce.y = jumpForce * Mathf.Abs(Mathf.Cos(dihedralAngle * Mathf.PI / 180));
+            moveForce.x = - jumpForce * Mathf.Sin(dihedralAngle * Mathf.PI / 180);
+            moveForce.y = jumpForce * Mathf.Cos(dihedralAngle * Mathf.PI / 180);
         }
     }
 }

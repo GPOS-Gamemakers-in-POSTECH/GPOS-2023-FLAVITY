@@ -8,6 +8,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private KeyCode KeyCodeJump = KeyCode.Space;
 
+    [SerializeField]
+    private KeyCode keyCodeRotateClockWise = KeyCode.Q;
+
+    [SerializeField]
+    private KeyCode keyCodeRotateCounterClockWise = KeyCode.E;
+
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip audioClipWalk;
@@ -16,6 +22,7 @@ public class PlayerControl : MonoBehaviour
 
     private MouseControl mouse; // mouse control variable
     private Movement movement; // player movement control variable
+    private DihedralAngleManager dihedralAngleManager;
     private Status status;
     private PlayerAnimation animator;
     private AudioSource audioSource;
@@ -26,6 +33,12 @@ public class PlayerControl : MonoBehaviour
     private Vector3 armInitialLocalPosition;
     private Vector3 mainCameraInitialLocalPosition;
 
+    private RaycastHit hit;
+
+    public float doubleTapTime = 1f;
+    private float elapsedTime;
+    private int pressCount;
+
     public float dihedralAngle;
     //This is called at first activation
     private void Awake()
@@ -35,18 +48,19 @@ public class PlayerControl : MonoBehaviour
 
         mouse = GetComponent<MouseControl>();
         movement = GetComponent<Movement>();
+        dihedralAngleManager = GetComponent<DihedralAngleManager>();
         status = GetComponent<Status>();
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<PlayerAnimation>();
         audioSource = GetComponent<AudioSource>();
 
+        dihedralAngle = 0f;
+
         arm = transform.Find("(Legacy)arms_assault_rifle_01").gameObject;
         mainCamera = transform.Find("Main Camera").gameObject;
-
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, dihedralAngle));
         armInitialLocalPosition = arm.transform.localPosition;
         mainCameraInitialLocalPosition = mainCamera.transform.localPosition;
-
-        dihedralAngle = 90f;
     }
     
     // This is called whenever activated
@@ -54,10 +68,60 @@ public class PlayerControl : MonoBehaviour
     {
         if (!PauseControl.GameIsPaused)
         {
+            UpdateDihedralAngle();
             UpdateRotate();
             UpdateMove();
             UpdateJump();
             UpdateWeaponAction();
+        }
+    }
+    
+    private void UpdateDihedralAngle()
+    {
+        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 4))
+        {
+            // count the number of times space is pressed
+            if (Input.GetKeyDown(KeyCodeJump))
+            {
+                pressCount++;
+            }
+
+            // if they pressed at least once
+            if (pressCount > 0)
+            {
+                // count the time passed
+                elapsedTime += Time.deltaTime;
+
+                // if the time elapsed is greater than the time limit
+                if (elapsedTime > doubleTapTime)
+                {
+                    resetPressTimer();
+                }
+                else if (pressCount == 2) // otherwise if the press count is 2
+                {
+                    // double pressed within the time limit
+                    dihedralAngleManager.RotateUpsideDown();
+                    resetPressTimer();
+
+                }
+            }
+
+            if (Input.GetKeyDown(keyCodeRotateClockWise))
+            {
+                if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
+                    dihedralAngleManager.RotateClockWise();
+                else
+                    dihedralAngleManager.RotateCounterClockWise();
+            }
+
+
+            if (Input.GetKeyDown(keyCodeRotateCounterClockWise))
+            {
+                if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
+                    dihedralAngleManager.RotateCounterClockWise();
+                else
+                    dihedralAngleManager.RotateClockWise();
+            }
         }
     }
 
@@ -66,13 +130,8 @@ public class PlayerControl : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, dihedralAngle));
         mouse.UpdateRotate(mouseX,mouseY, dihedralAngle);
-
-        Debug.Log(string.Format("arm : {0}, maincam : {1}", arm.transform.localEulerAngles, mainCamera.transform.localEulerAngles));
-        
-        
-
     }
 
     //call movement update method
@@ -127,4 +186,12 @@ public class PlayerControl : MonoBehaviour
             weapon.StopWeaopnAction();
         }
     }
+
+    //reset the press count & timer
+    private void resetPressTimer()
+    {
+        pressCount = 0;
+        elapsedTime = 0;
+    }
+
 }
