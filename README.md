@@ -34,7 +34,7 @@
 ## :fountain_pen: Authors
 
 - 기획 : @박동현 | @하승재
-- 프로그래밍 : [@김연웅](https://github.com/sy3c4ll) | [@김예준](https://github.com/YJunK) | [@이윤혁](https://github.com/a-nodi) | [@황찬기](https://github.com/DevMizeKR)
+- 프로그래밍 : [@김예준](https://github.com/YJunK) | [@이윤혁](https://github.com/a-nodi) | [@황찬기](https://github.com/DevMizeKR)
 
 
 ## :books: Documentation
