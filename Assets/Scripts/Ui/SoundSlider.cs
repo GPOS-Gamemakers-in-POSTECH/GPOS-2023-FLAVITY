@@ -6,28 +6,24 @@ using UnityEngine.Audio;
 
 public class SoundSlider : MonoBehaviour
 {
-    [SerializeField]
-    private static float saved = 50;
-    [SerializeField]
-    private float max = 40;
     private Slider slider;
     public AudioMixer audioMixer;
 
     void Start()
     {
         slider = GetComponent<Slider>();
-        slider.value = saved;
+        slider.value = DataManager.Instance.data.sound;
     }
 
     public void Cancel()
     {
-        slider.value = saved;
+        slider.value = DataManager.Instance.data.sound;
     }
 
     public void Apply()
     {
-        saved = slider.value;
-        if (saved == 0) audioMixer.SetFloat("Master", -80);
-        else audioMixer.SetFloat("Master", saved / 100 * max - 40);
+        DataManager.Instance.data.sound = slider.value;
+        if (DataManager.Instance.data.sound == 0) audioMixer.SetFloat("Master", -80);
+        else audioMixer.SetFloat("Master", DataManager.Instance.data.sound / 100 * 40 - 40);
     }
 }
