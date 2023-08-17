@@ -160,8 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21dd0109ef9eb4b419bf19aa4fa5a375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotCamXAxisSpeed: 5
-  rotCamYAxisSpeed: 3
 --- !u!143 &1022041593795841293
 CharacterController:
   m_ObjectHideFlags: 0
@@ -238,7 +236,8 @@ AudioSource:
   m_GameObject: {fileID: 8392691103422449248}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6587589447614584009, guid: e72f2871aae218d4aa2e3dc469ff9c54,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

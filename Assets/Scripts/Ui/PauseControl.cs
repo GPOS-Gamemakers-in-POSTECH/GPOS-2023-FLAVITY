@@ -18,8 +18,12 @@ public class PauseControl : MonoBehaviour
         if(Input.GetKeyDown(keyCodeEsc))
         {
             if(GameIsPaused){
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Resume();
             } else {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 Pause();
             }
         }
@@ -31,7 +35,6 @@ public class PauseControl : MonoBehaviour
         OptionObj.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Pause()
@@ -39,16 +42,18 @@ public class PauseControl : MonoBehaviour
         PauseObj.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    public void Main() {
+    public void Main() 
+    {
+        Resume();
         SceneManager.LoadScene("Title");
     }
 
     public void Quit()
     {
+        Resume();
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else
