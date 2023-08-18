@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    // Key Codes
     [Header("Input KeyCodes")]
     [SerializeField]
     private KeyCode keyCodeRun = KeyCode.LeftShift;
     [SerializeField]
     private KeyCode KeyCodeJump = KeyCode.Space;
-
     [SerializeField]
     private KeyCode keyCodeRotateClockWise = KeyCode.Q;
-
     [SerializeField]
     private KeyCode keyCodeRotateCounterClockWise = KeyCode.E;
 
+    // Audio Clips
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip audioClipWalk;
@@ -28,24 +28,24 @@ public class PlayerControl : MonoBehaviour
     private AudioSource audioSource;
     private Weapon weapon;
 
-    private GameObject arm;
     private GameObject mainCamera;
-    private Vector3 armInitialLocalPosition;
-    private Vector3 mainCameraInitialLocalPosition;
 
     private RaycastHit hit;
+
+    private float dihedralAngle;
+    private Quaternion playerDirection; // ######### NOTE: USE THIS VARIABLE TO GET CURRENT PLAYERS DIRECTION #########
 
     public float doubleTapTime = 1f;
     private float elapsedTime;
     private int pressCount;
 
-    public float dihedralAngle;
     //This is called at first activation
     private void Awake()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        // Load components and gameObjects
         mouse = GetComponent<MouseControl>();
         movement = GetComponent<Movement>();
         dihedralAngleManager = GetComponent<DihedralAngleManager>();
@@ -53,14 +53,12 @@ public class PlayerControl : MonoBehaviour
         weapon = GetComponentInChildren<Weapon>();
         animator = GetComponent<PlayerAnimation>();
         audioSource = GetComponent<AudioSource>();
-
-        dihedralAngle = 0f;
-
-        arm = transform.Find("(Legacy)arms_assault_rifle_01").gameObject;
         mainCamera = transform.Find("Main Camera").gameObject;
+        
+        // Set rotation
+        dihedralAngle = 0f;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, dihedralAngle));
-        armInitialLocalPosition = arm.transform.localPosition;
-        mainCameraInitialLocalPosition = mainCamera.transform.localPosition;
+
     }
     
     // This is called whenever activated
@@ -78,6 +76,10 @@ public class PlayerControl : MonoBehaviour
     
     private void UpdateDihedralAngle()
     {
+        // Get key input and rotate player
+        dihedralAngle = dihedralAngleManager.dihedralAngle; // Update dihedral angle
+        
+        // Detect double jump
         if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 4))
         {
             // count the number of times space is pressed
@@ -99,13 +101,14 @@ public class PlayerControl : MonoBehaviour
                 }
                 else if (pressCount == 2) // otherwise if the press count is 2
                 {
-                    // double pressed within the time limit
+                    // Double pressed within the time limit
                     dihedralAngleManager.RotateUpsideDown();
                     resetPressTimer();
 
                 }
             }
 
+            // Detect CW rotate key
             if (Input.GetKeyDown(keyCodeRotateClockWise))
             {
                 if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
@@ -114,7 +117,7 @@ public class PlayerControl : MonoBehaviour
                     dihedralAngleManager.RotateCounterClockWise();
             }
 
-
+            // Detect CCW rotate key
             if (Input.GetKeyDown(keyCodeRotateCounterClockWise))
             {
                 if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
@@ -131,7 +134,8 @@ public class PlayerControl : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, dihedralAngle));
-        mouse.UpdateRotate(mouseX,mouseY, dihedralAngle);
+        playerDirection = mainCamera.transform.rotation;
+        mouse.UpdateRotate(mouseX, mouseY, dihedralAngle);
     }
 
     //call movement update method

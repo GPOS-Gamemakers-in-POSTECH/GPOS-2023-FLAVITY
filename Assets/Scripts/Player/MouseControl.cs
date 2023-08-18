@@ -9,16 +9,14 @@ public class MouseControl : MonoBehaviour
 
     private float limitDownAngle = -80;
     private float limitUpAngle = 90;
-    [SerializeField]
+
     private float eulerAngleX;
-    [SerializeField]
     private float eulerAngleY;
-    [SerializeField]
-    private float eulerAngleZ;
 
     private GameObject arm;
-    private GameObject mainCamera;
     private Vector3 armInitialLocalPosition;
+
+    private GameObject mainCamera;
     private Vector3 mainCameraInitialLocalPosition;
 
     public Transform cameraTransform;
@@ -47,15 +45,15 @@ public class MouseControl : MonoBehaviour
         eulerAngleX = ClampAngle(eulerAngleX, limitDownAngle, limitUpAngle);
 
         arm.transform.localPosition = new Vector3(
-            armInitialLocalPosition.x * Mathf.Cos(eulerAngleY * Mathf.PI / 180) + armInitialLocalPosition.y * Mathf.Sin(eulerAngleX * Mathf.PI / 180) * Mathf.Sin(eulerAngleY * Mathf.PI / 180) + armInitialLocalPosition.z * Mathf.Cos(eulerAngleX * Mathf.PI / 180) * Mathf.Sin(eulerAngleY * Mathf.PI / 180),
-            armInitialLocalPosition.y * Mathf.Cos(eulerAngleX * Mathf.PI / 180) - armInitialLocalPosition.z * Mathf.Sin(eulerAngleX * Mathf.PI / 180),
-            armInitialLocalPosition.y * Mathf.Sin(eulerAngleX * Mathf.PI / 180) * Mathf.Cos(eulerAngleY * Mathf.PI / 180) - armInitialLocalPosition.x * Mathf.Sin(eulerAngleY * Mathf.PI / 180) + armInitialLocalPosition.z * Mathf.Cos(eulerAngleX * Mathf.PI / 180) * Mathf.Cos(eulerAngleY * Mathf.PI / 180)
+            armInitialLocalPosition.x * Mathf.Cos(Rad(eulerAngleY)) + armInitialLocalPosition.y * Mathf.Sin(Rad(eulerAngleX)) * Mathf.Sin(Rad(eulerAngleY)) + armInitialLocalPosition.z * Mathf.Cos(Rad(eulerAngleX)) * Mathf.Sin(Rad(eulerAngleY)),
+            armInitialLocalPosition.y * Mathf.Cos(Rad(eulerAngleX)) - armInitialLocalPosition.z * Mathf.Sin(Rad(eulerAngleX)),
+            armInitialLocalPosition.y * Mathf.Sin(Rad(eulerAngleX)) * Mathf.Cos(Rad(eulerAngleY)) - armInitialLocalPosition.x * Mathf.Sin(Rad(eulerAngleY)) + armInitialLocalPosition.z * Mathf.Cos(Rad(eulerAngleX)) * Mathf.Cos(Rad(eulerAngleY))
             );
 
         mainCamera.transform.localPosition = new Vector3(
-            mainCameraInitialLocalPosition.x * Mathf.Cos(eulerAngleY * Mathf.PI / 180) + mainCameraInitialLocalPosition.y * Mathf.Sin(eulerAngleX * Mathf.PI / 180) * Mathf.Sin(eulerAngleY * Mathf.PI / 180),
-            mainCameraInitialLocalPosition.y * Mathf.Cos(eulerAngleX * Mathf.PI / 180),
-            mainCameraInitialLocalPosition.y * Mathf.Sin(eulerAngleX * Mathf.PI / 180) * Mathf.Cos(eulerAngleY * Mathf.PI / 180) - mainCameraInitialLocalPosition.x * Mathf.Sin(eulerAngleY * Mathf.PI / 180)
+            mainCameraInitialLocalPosition.x * Mathf.Cos(Rad(eulerAngleY)) + mainCameraInitialLocalPosition.y * Mathf.Sin(Rad(eulerAngleX)) * Mathf.Sin(Rad(eulerAngleY)),
+            mainCameraInitialLocalPosition.y * Mathf.Cos(Rad(eulerAngleX)),
+            mainCameraInitialLocalPosition.y * Mathf.Sin(Rad(eulerAngleX)) * Mathf.Cos(Rad(eulerAngleY)) - mainCameraInitialLocalPosition.x * Mathf.Sin(Rad(eulerAngleY))
             );
 
         arm.transform.localRotation = Quaternion.Euler(new Vector3(eulerAngleX, eulerAngleY, 0));
@@ -63,12 +61,16 @@ public class MouseControl : MonoBehaviour
         cameraTransform = mainCamera.transform;
     }   
 
-    //limitation on angle which palyer can reach
+    //limitation on angle which player can reach
     private float ClampAngle(float angle, float min, float max)
     {
         if (angle < -360) angle += 360;
         if (angle > 360) angle -= 360;
 
         return Mathf.Clamp(angle, min, max);
+    }
+    private float Rad(float value)
+    {
+        return value * Mathf.PI / 180;
     }
 }
