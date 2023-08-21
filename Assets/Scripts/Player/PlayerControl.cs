@@ -26,6 +26,8 @@ public class PlayerControl : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
+
         mouse = GetComponent<MouseControl>();
         movement = GetComponent<Movement>();
         status = GetComponent<Status>();

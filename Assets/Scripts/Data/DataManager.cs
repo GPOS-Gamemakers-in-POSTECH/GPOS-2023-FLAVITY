@@ -1,5 +1,4 @@
 using System.IO;
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +25,17 @@ public class DataManager : MonoBehaviour
     }
     string GameDataFileName = "GameData.json";
     public Data data = new Data();
-    private int MouseMax = 2;
     public AudioMixer audioMixer;
+    public List<Vector3> SavePoint = new List<Vector3>();
+
+    public void Start ()
+    {
+        SavePoint.Add(new Vector3(0,7,-40));
+        SavePoint.Add(new Vector3(0,30,10));
+        SavePoint.Add(new Vector3(0,7,20));
+        SavePoint.Add(new Vector3(0,7,30));
+        SavePoint.Add(new Vector3(0,7,40));
+    }
 
     public void ApplyGameData()
     {

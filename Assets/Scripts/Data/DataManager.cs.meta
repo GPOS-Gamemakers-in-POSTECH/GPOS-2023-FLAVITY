@@ -5,6 +5,10 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - audioMixer: {fileID: 24100000, guid: e72f2871aae218d4aa2e3dc469ff9c54, type: 2}
+  - player: {fileID: 8392691103422449248, guid: 6b58359160e12bd4681d1f4742034c6a,
+      type: 3}
+  - PlayerPrefab: {fileID: 8392691103422449248, guid: 6b58359160e12bd4681d1f4742034c6a,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
