@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDihedralAngle: 0
-  isrotating: 0
+  dihedralAngle: 0
   rotationSpeed: 5
 --- !u!1 &655774308
 GameObject:
@@ -882,6 +882,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9162995678163678436, guid: 6b58359160e12bd4681d1f4742034c6a,
+        type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 1914048138}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1010,6 +1015,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1914048138 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7966444265033373364, guid: 6b58359160e12bd4681d1f4742034c6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1682424628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121746505
 GameObject:
   m_ObjectHideFlags: 0
