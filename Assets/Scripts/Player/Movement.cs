@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     private float jumpForce;
+
     [SerializeField]
     private float gravity;
 
@@ -44,6 +45,10 @@ public class Movement : MonoBehaviour
         //Debug.Log("why?");
         direction = transform.rotation * new Vector3(direction.x, 0 , direction.z);
         moveForce = new Vector3(direction.x * moveSpeed, moveForce.y, direction.z * moveSpeed);
+        //moveForce.normalize();
+        //moveForce = Vector3.Normalize(moveForce) * moveSpeed;
+        //moveForce = public static Vecotr3 Normalize(moveForce);
+        Debug.Log(moveForce);
     }
 
     public void Jump()

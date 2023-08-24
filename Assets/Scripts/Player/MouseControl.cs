@@ -10,8 +10,8 @@ public class MouseControl : MonoBehaviour
     private float rotCamYAxisSpeed = 3;
 
     private float limitMinX = -80;
-    private float limitMaxX = 50;
-    private float eulerAngleX;
+    private float limitMaxX = 70;
+    public float eulerAngleX;
     private float eulerAngleY;
 
     //mouse update method

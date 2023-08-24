@@ -84,7 +84,16 @@ public class PlayerControl : MonoBehaviour
                 audioSource.Stop();
             }
         }
-        movement.MoveTo(new Vector3(x,0,z));
+
+        float angle = mouse.eulerAngleX;
+        if(angle > 60)
+        {
+            movement.MoveTo(new Vector3(x ,0,z)* 3) ;
+        }
+        else
+        {
+            movement.MoveTo(new Vector3(x,0,z));
+        }
     }
     private void UpdateJump()
     {
@@ -96,7 +105,7 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateWeaponAction()
     {
-        Debug.Log("123");
+        //Debug.Log("123");
         if(Input.GetMouseButtonDown(0))
         {
             weapon.StartWeaponACtion();

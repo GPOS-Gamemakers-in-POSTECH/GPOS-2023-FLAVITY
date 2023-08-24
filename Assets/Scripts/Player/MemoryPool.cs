@@ -86,4 +86,43 @@
 //     }
 
 
+//     public void DeactivatePoolItem(GameObject removeObject)
+//     {
+//         if(poolItemList == null || removeObject == null) return;
+
+//         int count = poolItemList.count;
+//         for(int i = 0;i<count;i++)
+//         {
+//             PoolItem poolItem = poolItemList[i];
+//             if(poolItem.gameObejct == removeObject){
+//                 activeCount--;
+
+//                 poolItem.isActive = false;
+//                 poolItem.gameObejct.SetActive(false);
+
+//                 return;
+//             }
+//         }
+//     }
+
+//     public void DeactivateAllPoolItems()
+//     {
+//         if(poolItemList == null) return;
+
+//         int count =  poolItemList.count;
+//         for(int i = 0;i<count;i++)
+//         {
+//             Poolitem poolitem = poolitemList[i];
+
+//             if( poolitem.gameObejct !=null || poolitem.isActive == true)
+//             {
+//                 poolItem.isActive = false;
+//                 poolItem.gameObejct.SetActive(false);
+//             }
+//         }
+
+//         activeCount = 0;
+//     }
+
+
 // }
