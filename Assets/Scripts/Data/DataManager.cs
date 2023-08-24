@@ -28,7 +28,7 @@ public class DataManager : MonoBehaviour
     public AudioMixer audioMixer;
     public List<Vector3> SavePoint = new List<Vector3>();
 
-    public void Start ()
+    public void Awake()
     {
         SavePoint.Add(new Vector3(0,7,-40));
         SavePoint.Add(new Vector3(0,30,10));
