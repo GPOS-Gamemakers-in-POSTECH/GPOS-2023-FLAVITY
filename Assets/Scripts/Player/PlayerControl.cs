@@ -45,6 +45,8 @@ public class PlayerControl : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
+
         // Load components and gameObjects
         mouse = GetComponent<MouseControl>();
         movement = GetComponent<Movement>();

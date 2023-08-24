@@ -6,25 +6,23 @@ using UnityEngine.UI;
 public class MouseSlider : MonoBehaviour
 {
     [SerializeField]
-    private static float saved = 50;
-    [SerializeField]
     private float max = 2;
     private Slider slider;
 
     void Start()
     {
         slider = GetComponent<Slider>();
-        slider.value = saved;
+        slider.value = DataManager.Instance.data.mouse;
     }
 
     public void Cancel()
     {
-        slider.value = saved;
+        slider.value = DataManager.Instance.data.mouse;
     }
     public void Apply()
     {
-        saved = slider.value;
-        MouseControl.rotCamXAxisSpeed = saved / 100 * max;
-        MouseControl.rotCamYAxisSpeed = saved / 100 * max;
+        DataManager.Instance.data.mouse = slider.value;
+        MouseControl.rotCamXAxisSpeed = DataManager.Instance.data.mouse / 100 * max;
+        MouseControl.rotCamYAxisSpeed = DataManager.Instance.data.mouse / 100 * max;
     }
 }

@@ -48,6 +48,7 @@ public class PauseControl : MonoBehaviour
     public void Main() 
     {
         Resume();
+        DataManager.Instance.SaveGameData();
         SceneManager.LoadScene("Title");
     }
 
