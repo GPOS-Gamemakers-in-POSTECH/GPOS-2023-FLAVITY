@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa79be6a4abd02a4f8d9a65d5b776217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continue_button: {fileID: 1771240991}
 --- !u!1 &150337838
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9271b9cde2a494391b6afe518e20d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 40
   audioMixer: {fileID: 24100000, guid: e72f2871aae218d4aa2e3dc469ff9c54, type: 2}
 --- !u!114 &244741646
 MonoBehaviour:
