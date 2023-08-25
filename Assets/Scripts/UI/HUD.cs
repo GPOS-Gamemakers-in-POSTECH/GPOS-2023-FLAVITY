@@ -7,7 +7,8 @@ public class HUD : MonoBehaviour
 {
     public GameObject left, up, right;
     Image image;
-    void Start() {
+
+    void Start(){
         image = GetComponent<Image>();    
     }
 
@@ -22,8 +23,13 @@ public class HUD : MonoBehaviour
         else
         {
             if (Status.isCwRotatable) left.SetActive(true);
+            else left.SetActive(false);
+
             if (Status.isCcwRotatable) right.SetActive(true);
+            else right.SetActive(false);
+
             if (Status.isUpsideDownRotatable) up.SetActive(true);
+            else up.SetActive(false);
         }
     }
 }
