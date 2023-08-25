@@ -21,14 +21,11 @@ public class TitleUIControl : MonoBehaviour
     public void ChangeScene()
     {
         DataManager.Instance.data.pose = 0;
-
-        DataManager.Instance.ApplyGameData();
         SceneManager.LoadScene("Map");
     }
 
     public void Continue()
     {
-        DataManager.Instance.ApplyGameData();
         SceneManager.LoadScene("Map");
     }
 

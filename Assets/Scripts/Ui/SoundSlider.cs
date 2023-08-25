@@ -26,4 +26,8 @@ public class SoundSlider : MonoBehaviour
         if (DataManager.Instance.data.sound == 0) audioMixer.SetFloat("Master", -80);
         else audioMixer.SetFloat("Master", DataManager.Instance.data.sound / 100 * 40 - 40);
     }
+    private void OnDisable()
+    {
+        Cancel();
+    }
 }

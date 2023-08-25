@@ -19885,6 +19885,21 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7900110792257912843, guid: b25c26e03a691ac43aba031ed2fbb8ce,
+        type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900110792257912843, guid: b25c26e03a691ac43aba031ed2fbb8ce,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900110792257912843, guid: b25c26e03a691ac43aba031ed2fbb8ce,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8157925684002053389, guid: b25c26e03a691ac43aba031ed2fbb8ce,
         type: 3}
       propertyPath: m_Name
@@ -76844,6 +76859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d139cae8908d90c47b9aec887df86417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound_slider: {fileID: 69241495}
+  mouse_slider: {fileID: 112577117}
   keyCodeEsc: 27
   PauseObj: {fileID: 1146711339}
   OptionObj: {fileID: 614927844}
