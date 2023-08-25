@@ -45,8 +45,6 @@ public class PlayerControl : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
-
         // Load components and gameObjects
         mouse = GetComponent<MouseControl>();
         movement = GetComponent<Movement>();
@@ -61,6 +59,14 @@ public class PlayerControl : MonoBehaviour
         dihedralAngle = 0f;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, dihedralAngle));
 
+        //Set SavePoint
+        transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
+        if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 1) 
+            dihedralAngleManager.RotateClockWise();
+        else if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 2) 
+            dihedralAngleManager.RotateUpsideDown();
+        else if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 3) 
+            dihedralAngleManager.RotateCounterClockWise();
     }
     
     // This is called whenever activated
