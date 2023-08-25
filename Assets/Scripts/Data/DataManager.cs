@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 public class DataManager : MonoBehaviour
 {
     static GameObject container;
-    static DataManager instance;    
+    static DataManager instance;
     public static DataManager Instance
     {
         get
@@ -27,14 +27,18 @@ public class DataManager : MonoBehaviour
     public Data data = new Data();
     public AudioMixer audioMixer;
     public List<Vector3> SavePoint = new List<Vector3>();
+    public List<int> SaveRotate = new List<int>();
 
     public void Awake()
     {
         SavePoint.Add(new Vector3(0,7,-40));
-        SavePoint.Add(new Vector3(0,30,10));
-        SavePoint.Add(new Vector3(0,7,20));
-        SavePoint.Add(new Vector3(0,7,30));
-        SavePoint.Add(new Vector3(0,7,40));
+        SaveRotate.Add(0);
+        SavePoint.Add(new Vector3(0,7,-40));
+        SaveRotate.Add(1);
+        SavePoint.Add(new Vector3(0,7,-40));
+        SaveRotate.Add(2);
+        SavePoint.Add(new Vector3(0,7,-40));
+        SaveRotate.Add(3);
     }
 
     public void ApplyGameData()
