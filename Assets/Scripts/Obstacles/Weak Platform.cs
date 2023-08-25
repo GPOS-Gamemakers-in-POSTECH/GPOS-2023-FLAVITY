@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeakPlatform : MonoBehaviour
 {
-    [SerializeField] float destroySec = 5f;
+    [SerializeField] float destroySec = 3f;
 
     // Collision with Player
     void OnCollisionEnter(Collision collision)

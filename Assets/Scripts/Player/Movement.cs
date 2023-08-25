@@ -55,24 +55,34 @@ public class Movement : MonoBehaviour
     public void MoveTo(Vector3 direction)
     {
         direction = mouseControl.cameraTransform.rotation * new Vector3(direction.x, direction.y , direction.z); // Convert direction's frame in to camera's frame
-        
-        // If t
-        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(Rad(dihedralAngle)), -Mathf.Cos(Rad(dihedralAngle)), 0), out hit, 2))
+
+        if (Mathf.Abs(Mathf.Sin(Rad(dihedralAngle))) > 0.9)
+            moveForce = new Vector3(
+                moveForce.x,
+                direction.y * moveSpeed,
+                direction.z * moveSpeed
+                );
+
+        if (Mathf.Abs(Mathf.Cos(Rad(dihedralAngle))) > 0.9)
         {
             moveForce = new Vector3(
-                direction.x * moveSpeed * Mathf.Abs(Mathf.Cos(Rad(dihedralAngle))),
-                direction.y * moveSpeed * Mathf.Abs(Mathf.Sin(Rad(dihedralAngle))),
+                direction.x * moveSpeed,
+                moveForce.y,
                 direction.z * moveSpeed
                 );
         }
+        
     }
 
     public void Jump()
     {
         if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(Rad(dihedralAngle)), -Mathf.Cos(Rad(dihedralAngle)), 0), out hit, 2)) // If touching ground
         {
-            moveForce.x = -jumpForce * Mathf.Sin(Rad(dihedralAngle));
-            moveForce.y = jumpForce * Mathf.Cos(Rad(dihedralAngle));
+            if (Mathf.Abs(Mathf.Sin(Rad(dihedralAngle))) > 0.9)
+                moveForce.x = -jumpForce * Mathf.Sin(Rad(dihedralAngle));
+
+            else if (Mathf.Abs(Mathf.Cos(Rad(dihedralAngle))) > 0.9) 
+                moveForce.y = jumpForce * Mathf.Cos(Rad(dihedralAngle));
         }
     }
 
