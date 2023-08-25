@@ -29,7 +29,7 @@ public class DataManager : MonoBehaviour
     public List<Vector3> SavePoint = new List<Vector3>();
     public List<int> SaveRotate = new List<int>();
 
-    public void Awake()
+    public void Start()
     {
         SavePoint.Add(new Vector3(0, 7, -40));
         SaveRotate.Add(0);
