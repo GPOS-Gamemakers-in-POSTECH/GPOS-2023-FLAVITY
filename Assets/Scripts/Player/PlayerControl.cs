@@ -116,10 +116,6 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        else
-        {
-
-        }
 
         if (pressCount > 0)
         {
