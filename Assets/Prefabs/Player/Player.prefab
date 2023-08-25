@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5546642299701343669}
   - component: {fileID: 4046036874569691519}
   - component: {fileID: 6793201521004543543}
-  - component: {fileID: -4962949319229472040}
+  - component: {fileID: 2211531151558288090}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 8157925684002053389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.3, z: -52.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -366,10 +366,10 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-4962949319229472040
+  m_Center: {x: 0, y: -0.4, z: 0}
+--- !u!54 &2211531151558288090
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,7 +392,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
