@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour
     private float dihedralAngle;
     private Quaternion playerDirection; // ######### NOTE: USE THIS VARIABLE TO GET CURRENT PLAYERS DIRECTION #########
 
-    public float doubleTapTime = 1f;
+    public float doubleTapTime = 0.5f;
     private float elapsedTime;
     private int pressCount;
 
@@ -75,14 +75,14 @@ public class PlayerControl : MonoBehaviour
             UpdateWeaponAction();
         }
     }
-    
+
     private void UpdateDihedralAngle()
     {
         // Get key input and rotate player
         dihedralAngle = dihedralAngleManager.dihedralAngle; // Update dihedral angle
-        
+
         // Detect double jump
-        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 4))
+        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3))
         {
             // count the number of times space is pressed
             if (Input.GetKeyDown(KeyCodeJump))
@@ -90,24 +90,11 @@ public class PlayerControl : MonoBehaviour
                 pressCount++;
             }
 
-            // if they pressed at least once
-            if (pressCount > 0)
+            if (pressCount == 2) // otherwise if the press count is 2
             {
-                // count the time passed
-                elapsedTime += Time.deltaTime;
-
-                // if the time elapsed is greater than the time limit
-                if (elapsedTime > doubleTapTime)
-                {
-                    resetPressTimer();
-                }
-                else if (pressCount == 2) // otherwise if the press count is 2
-                {
-                    // Double pressed within the time limit
-                    dihedralAngleManager.RotateUpsideDown();
-                    resetPressTimer();
-
-                }
+                // Double pressed within the time limit
+                dihedralAngleManager.RotateUpsideDown();
+                resetPressTimer();
             }
 
             // Detect CW rotate key
@@ -127,6 +114,24 @@ public class PlayerControl : MonoBehaviour
                 else
                     dihedralAngleManager.RotateClockWise();
             }
+        }
+
+        else
+        {
+
+        }
+
+        if (pressCount > 0)
+        {
+            // count the time passed
+            elapsedTime += Time.deltaTime;
+
+            // if the time elapsed is greater than the time limit
+            if (elapsedTime > doubleTapTime)
+            {
+                resetPressTimer();
+            }
+
         }
     }
 

@@ -42,18 +42,21 @@ public class DihedralAngleManager : MonoBehaviour
         // Update isRotating and Rotatables to Player's status
         Status.isRotating = isRotating;
 
-        if (!Physics.Raycast(transform.position, -mouseControl.cameraTransform.right, out hit, 2))
+        if (!Physics.Raycast(transform.position, -mouseControl.cameraTransform.right, out hit, 2) && !isRotating && 
+            Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3))
             Status.isCcwRotatable = true;
         else
             Status.isCcwRotatable = false;
 
-        if (!Physics.Raycast(transform.position, mouseControl.cameraTransform.right, out hit, 2))
+        if (!Physics.Raycast(transform.position, mouseControl.cameraTransform.right, out hit, 2) && !isRotating && 
+            Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3))
             Status.isCwRotatable = true;
         else
             Status.isCwRotatable = false;
 
         if (Physics.Raycast(transform.position, mouseControl.cameraTransform.right, out hit, 2) &&
-            Physics.Raycast(transform.position, -mouseControl.cameraTransform.right, out hit, 2)
+            Physics.Raycast(transform.position, -mouseControl.cameraTransform.right, out hit, 2) && !isRotating ||
+            !Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3)
             )
             Status.isUpsideDownRotatable = false;
         else
