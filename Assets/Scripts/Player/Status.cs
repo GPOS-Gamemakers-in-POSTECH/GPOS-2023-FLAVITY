@@ -14,9 +14,21 @@ public class Status : MonoBehaviour
     public float WalkSpeed => walkSpeed;
     public float RunSpeed => runSpeed;
 
+
     public static bool isRotating;
 
     public static bool isCwRotatable;
     public static bool isCcwRotatable;
     public static bool isUpsideDownRotatable;
+
+    
+    
+    void Update()
+    {
+        Debug.Log(isRotating);
+        Debug.Log(isCwRotatable);
+        Debug.Log(isCcwRotatable);
+        Debug.Log(isUpsideDownRotatable);
+    }
+
 }
