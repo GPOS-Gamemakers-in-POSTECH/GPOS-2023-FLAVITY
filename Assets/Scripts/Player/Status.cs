@@ -21,14 +21,4 @@ public class Status : MonoBehaviour
     public static bool isCcwRotatable;
     public static bool isUpsideDownRotatable;
     public static bool rotated;
-    
-    
-    void Update()
-    {
-        Debug.Log(isRotating);
-        Debug.Log(isCwRotatable);
-        Debug.Log(isCcwRotatable);
-        Debug.Log(isUpsideDownRotatable);
-    }
-
 }
