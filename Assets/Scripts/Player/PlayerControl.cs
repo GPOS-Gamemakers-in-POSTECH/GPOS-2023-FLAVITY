@@ -185,7 +185,16 @@ public class PlayerControl : MonoBehaviour
                 audioSource.Stop();
             }
         }
-        movement.MoveTo(new Vector3(x,0,z));
+        
+        float angle = mouse.eulerAngleX;
+        if(angle > 60)
+        {
+            movement.MoveTo(new Vector3(x ,0,z)* 3) ;
+        }
+        else
+        {
+            movement.MoveTo(new Vector3(x,0,z));
+        }
     }
     private void UpdateJump()
     {

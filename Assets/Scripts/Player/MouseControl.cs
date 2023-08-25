@@ -10,7 +10,7 @@ public class MouseControl : MonoBehaviour
     private float limitDownAngle = -80;
     private float limitUpAngle = 90;
 
-    private float eulerAngleX;
+    public float eulerAngleX;
     private float eulerAngleY;
 
     private GameObject arm;
