@@ -20,7 +20,7 @@ public class Status : MonoBehaviour
     public static bool isCwRotatable;
     public static bool isCcwRotatable;
     public static bool isUpsideDownRotatable;
-
+    public static bool rotated;
     
     
     void Update()

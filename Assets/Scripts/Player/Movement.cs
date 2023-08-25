@@ -55,11 +55,6 @@ public class Movement : MonoBehaviour
     public void MoveTo(Vector3 direction)
     {
         direction = mouseControl.cameraTransform.rotation * new Vector3(direction.x, direction.y , direction.z); // Convert direction's frame in to camera's frame
-        
-        float x;
-        float y;
-        float z;
-             
 
         if (Mathf.Abs(Mathf.Sin(Rad(dihedralAngle))) > 0.9)
             moveForce = new Vector3(

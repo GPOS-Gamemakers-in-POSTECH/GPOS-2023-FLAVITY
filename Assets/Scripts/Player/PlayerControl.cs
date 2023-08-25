@@ -88,43 +88,9 @@ public class PlayerControl : MonoBehaviour
         dihedralAngle = dihedralAngleManager.dihedralAngle; // Update dihedral angle
 
         // Detect double jump
-        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3))
+        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3) && !Status.isRotating)
         {
-            // count the number of times space is pressed
-            if (Input.GetKeyDown(KeyCodeJump))
-            {
-                pressCount++;
-            }
-
-            if (pressCount == 2) // otherwise if the press count is 2
-            {
-                // Double pressed within the time limit
-                dihedralAngleManager.RotateUpsideDown();
-                resetPressTimer();
-            }
-
-            // Detect CW rotate key
-            if (Input.GetKeyDown(keyCodeRotateClockWise))
-            {
-                if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
-                    dihedralAngleManager.RotateClockWise();
-                else
-                    dihedralAngleManager.RotateCounterClockWise();
-            }
-
-            // Detect CCW rotate key
-            if (Input.GetKeyDown(keyCodeRotateCounterClockWise))
-            {
-                if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
-                    dihedralAngleManager.RotateCounterClockWise();
-                else
-                    dihedralAngleManager.RotateClockWise();
-            }
-        }
-
-        else
-        {
-
+            Status.rotated = false;
         }
 
         if (pressCount > 0)
@@ -138,6 +104,43 @@ public class PlayerControl : MonoBehaviour
                 resetPressTimer();
             }
 
+        }
+
+        // count the number of times space is pressed
+        if (Input.GetKeyDown(KeyCodeJump))
+        {
+            pressCount++;
+        }
+
+        if (pressCount == 2) // otherwise if the press count is 2
+        {
+            // Double pressed within the time limit
+            dihedralAngleManager.RotateUpsideDown();
+            resetPressTimer();
+
+            Status.rotated = true;
+        }
+
+        // Detect CW rotate key
+        if (Input.GetKeyDown(keyCodeRotateClockWise))
+        {
+            if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
+                dihedralAngleManager.RotateClockWise();
+            else
+                dihedralAngleManager.RotateCounterClockWise();
+
+            Status.rotated = true;
+        }
+
+        // Detect CCW rotate key
+        if (Input.GetKeyDown(keyCodeRotateCounterClockWise))
+        {
+            if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
+                dihedralAngleManager.RotateCounterClockWise();
+            else
+                dihedralAngleManager.RotateClockWise();
+            
+            Status.rotated = true;
         }
     }
 
