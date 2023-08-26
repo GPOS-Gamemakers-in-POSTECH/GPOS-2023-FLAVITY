@@ -1,28 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class TitleUIControl : MonoBehaviour
 {
+    public GameObject continue_button;
     void Awake()
     {
-        //roading Data
+        // Roading Data
         DataManager.Instance.LoadGameData();
+        if (DataManager.Instance.data.pose == 0)
+        {
+            continue_button.GetComponent<Button>().interactable = false;
+        }
     }
 
     // New Game Button - Change Scene
     public void ChangeScene()
     {
         DataManager.Instance.data.pose = 0;
-
-        DataManager.Instance.ApplyGameData();
         SceneManager.LoadScene("Map");
     }
 
     public void Continue()
     {
-        DataManager.Instance.ApplyGameData();
         SceneManager.LoadScene("Map");
     }
 

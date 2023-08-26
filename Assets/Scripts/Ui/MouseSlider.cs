@@ -25,4 +25,8 @@ public class MouseSlider : MonoBehaviour
         MouseControl.rotCamXAxisSpeed = DataManager.Instance.data.mouse / 100 * max;
         MouseControl.rotCamYAxisSpeed = DataManager.Instance.data.mouse / 100 * max;
     }
+    private void OnDisable()
+    {
+        Cancel();
+    }
 }

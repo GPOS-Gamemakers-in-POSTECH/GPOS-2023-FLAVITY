@@ -33,11 +33,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 			metalImpactPrefabs = new Transform[1];
 			concreteImpactPrefabs = new Transform[1];
-
-			metalImpactPrefabs[0] = (AssetDatabase.LoadAssetAtPath("Assets/External/infima Games/Low Poly Shooter Pack/Prefabs/Effects/Impacts/P_IMP_Metal.prefab", typeof(GameObject)) as GameObject).transform;
-			concreteImpactPrefabs[0] = (AssetDatabase.LoadAssetAtPath("Assets/External/infima Games/Low Poly Shooter Pack/Prefabs/Effects/Impacts/P_IMP_Concrete.prefab", typeof(GameObject)) as GameObject).transform;
-			Debug.Log(metalImpactPrefabs[0]);
-			Debug.Log(concreteImpactPrefabs[0]);
+			metalImpactPrefabs[0] = (Resources.Load("P_IMP_Metal", typeof(GameObject)) as GameObject).transform;
+			concreteImpactPrefabs[0] = (Resources.Load("P_IMP_Concrete", typeof(GameObject)) as GameObject).transform;
 			//Start destroy timer
 			StartCoroutine(DestroyAfter());
 		}

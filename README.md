@@ -28,13 +28,14 @@
     - `develop` : 개발된 기능(feature)을 통합하는 브랜치
     - `docs` : 문서작업 브랜치
     - `feat/[issue_num]-[function name]` : 각 기능별 개발을 진행하는 브랜치
+    - `bug/[issue_num]-[bug name]` : 버그 해결용 브랜치
     - `test/[name]` : 테스트용 브랜치
 
 
 ## :fountain_pen: Authors
 
-- 기획 : @박동현 | @하승재
-- 프로그래밍 : [@김예준](https://github.com/YJunK) | [@이윤혁](https://github.com/a-nodi) | [@황찬기](https://github.com/DevMizeKR)
+- 기획 : [@박동현](https://github.com/RevGhb) | [@하승재](https://github.com/swm493)
+- 프로그래밍 : [@김예준](https://github.com/YJunK) | [@박동현](https://github.com/RevGhb) | [@이윤혁](https://github.com/a-nodi) | [@하승재](https://github.com/swm493) | [@황찬기](https://github.com/DevMizeKR)
 
 
 ## :books: Documentation

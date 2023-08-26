@@ -35,7 +35,7 @@ public class PlayerControl : MonoBehaviour
     private float dihedralAngle;
     private Quaternion playerDirection; // ######### NOTE: USE THIS VARIABLE TO GET CURRENT PLAYERS DIRECTION #########
 
-    public float doubleTapTime = 1f;
+    public float doubleTapTime = 0.5f;
     private float elapsedTime;
     private int pressCount;
 
@@ -44,8 +44,6 @@ public class PlayerControl : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
-        transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
 
         // Load components and gameObjects
         mouse = GetComponent<MouseControl>();
@@ -61,6 +59,14 @@ public class PlayerControl : MonoBehaviour
         dihedralAngle = 0f;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, dihedralAngle));
 
+        //Set SavePoint
+        transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
+        if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 1) 
+            dihedralAngleManager.RotateClockWise();
+        else if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 2) 
+            dihedralAngleManager.RotateUpsideDown();
+        else if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 3) 
+            dihedralAngleManager.RotateCounterClockWise();
     }
     
     // This is called whenever activated
@@ -75,58 +81,66 @@ public class PlayerControl : MonoBehaviour
             UpdateWeaponAction();
         }
     }
-    
+
     private void UpdateDihedralAngle()
     {
         // Get key input and rotate player
         dihedralAngle = dihedralAngleManager.dihedralAngle; // Update dihedral angle
-        
+
         // Detect double jump
-        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 4))
+        if (Physics.Raycast(transform.position, new Vector3(Mathf.Sin(dihedralAngle * Mathf.PI / 180), -Mathf.Cos(dihedralAngle * Mathf.PI / 180), 0), out hit, 3) && !Status.isRotating)
         {
-            // count the number of times space is pressed
-            if (Input.GetKeyDown(KeyCodeJump))
+            Status.rotated = false;
+        }
+
+        if (pressCount > 0)
+        {
+            // count the time passed
+            elapsedTime += Time.deltaTime;
+
+            // if the time elapsed is greater than the time limit
+            if (elapsedTime > doubleTapTime)
             {
-                pressCount++;
+                resetPressTimer();
             }
 
-            // if they pressed at least once
-            if (pressCount > 0)
-            {
-                // count the time passed
-                elapsedTime += Time.deltaTime;
+        }
 
-                // if the time elapsed is greater than the time limit
-                if (elapsedTime > doubleTapTime)
-                {
-                    resetPressTimer();
-                }
-                else if (pressCount == 2) // otherwise if the press count is 2
-                {
-                    // Double pressed within the time limit
-                    dihedralAngleManager.RotateUpsideDown();
-                    resetPressTimer();
+        // count the number of times space is pressed
+        if (Input.GetKeyDown(KeyCodeJump))
+        {
+            pressCount++;
+        }
 
-                }
-            }
+        if (pressCount == 2) // otherwise if the press count is 2
+        {
+            // Double pressed within the time limit
+            dihedralAngleManager.RotateUpsideDown();
+            resetPressTimer();
 
-            // Detect CW rotate key
-            if (Input.GetKeyDown(keyCodeRotateClockWise))
-            {
-                if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
-                    dihedralAngleManager.RotateClockWise();
-                else
-                    dihedralAngleManager.RotateCounterClockWise();
-            }
+            Status.rotated = true;
+        }
 
-            // Detect CCW rotate key
-            if (Input.GetKeyDown(keyCodeRotateCounterClockWise))
-            {
-                if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
-                    dihedralAngleManager.RotateCounterClockWise();
-                else
-                    dihedralAngleManager.RotateClockWise();
-            }
+        // Detect CW rotate key
+        if (Input.GetKeyDown(keyCodeRotateClockWise))
+        {
+            if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
+                dihedralAngleManager.RotateClockWise();
+            else
+                dihedralAngleManager.RotateCounterClockWise();
+
+            Status.rotated = true;
+        }
+
+        // Detect CCW rotate key
+        if (Input.GetKeyDown(keyCodeRotateCounterClockWise))
+        {
+            if (Mathf.Cos(mainCamera.transform.localEulerAngles.y * Mathf.PI / 180) > 0)
+                dihedralAngleManager.RotateCounterClockWise();
+            else
+                dihedralAngleManager.RotateClockWise();
+            
+            Status.rotated = true;
         }
     }
 
@@ -171,7 +185,16 @@ public class PlayerControl : MonoBehaviour
                 audioSource.Stop();
             }
         }
-        movement.MoveTo(new Vector3(x,0,z));
+        
+        float angle = mouse.eulerAngleX;
+        if(angle > 60)
+        {
+            movement.MoveTo(new Vector3(x ,0,z)* 3) ;
+        }
+        else
+        {
+            movement.MoveTo(new Vector3(x,0,z));
+        }
     }
     private void UpdateJump()
     {
