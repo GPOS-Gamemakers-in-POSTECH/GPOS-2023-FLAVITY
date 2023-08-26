@@ -61,12 +61,12 @@ public class PlayerControl : MonoBehaviour
 
         //Set SavePoint
         transform.position = DataManager.Instance.SavePoint[DataManager.Instance.data.pose];
-        if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 1) 
-            dihedralAngleManager.RotateClockWise();
+        if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 1)
+            dihedralAngleManager.targetDihedralAngle -= 90;
         else if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 2) 
-            dihedralAngleManager.RotateUpsideDown();
+            dihedralAngleManager.targetDihedralAngle += 180;
         else if (DataManager.Instance.SaveRotate[DataManager.Instance.data.pose] == 3) 
-            dihedralAngleManager.RotateCounterClockWise();
+            dihedralAngleManager.targetDihedralAngle += 90;
     }
     
     // This is called whenever activated
