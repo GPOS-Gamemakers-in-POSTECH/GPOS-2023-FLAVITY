@@ -12410,7 +12410,7 @@ PrefabInstance:
     - target: {fileID: 7064252835799777801, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
       propertyPath: door_id
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7139854880424634732, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
@@ -25930,6 +25930,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: target_id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: linkedDoor
+      value: 
+      objectReference: {fileID: 162285735}
     - target: {fileID: 4230119950917459518, guid: 069bdff55b87dc746bc080835ca6d393,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27114,7 +27124,7 @@ PrefabInstance:
     - target: {fileID: 7064252835799777801, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
       propertyPath: door_id
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7139854880424634732, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
@@ -28548,7 +28558,7 @@ PrefabInstance:
     - target: {fileID: 7064252835799777801, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
       propertyPath: door_id
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7139854880424634732, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
@@ -65301,6 +65311,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: target_id
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: linkedDoor
+      value: 
+      objectReference: {fileID: 397605922}
     - target: {fileID: 4230119950917459518, guid: 069bdff55b87dc746bc080835ca6d393,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73477,6 +73497,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: target_id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: linkedDoor
+      value: 
+      objectReference: {fileID: 632223865}
     - target: {fileID: 4230119950917459518, guid: 069bdff55b87dc746bc080835ca6d393,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -89330,7 +89360,7 @@ PrefabInstance:
     - target: {fileID: 7064252835799777801, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
       propertyPath: door_id
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7139854880424634732, guid: 697e16821ef46e54ea8825a9ccbcbd1d,
         type: 3}
@@ -91068,6 +91098,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: target_id
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: linkedDoor
+      value: 
+      objectReference: {fileID: 333754687}
     - target: {fileID: 4230119950917459518, guid: 069bdff55b87dc746bc080835ca6d393,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -91932,6 +91972,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: target_id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630623412006111309, guid: 069bdff55b87dc746bc080835ca6d393,
+        type: 3}
+      propertyPath: linkedDoor
+      value: 
+      objectReference: {fileID: 328551128}
     - target: {fileID: 4230119950917459518, guid: 069bdff55b87dc746bc080835ca6d393,
         type: 3}
       propertyPath: m_StaticEditorFlags

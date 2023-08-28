@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7136059430813226368}
   m_Layer: 0
   m_Name: Explosive
-  m_TagString: ExplosiveBarrel
+  m_TagString: Explosive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +155,6 @@ MonoBehaviour:
     type: 3}
   explosionMinDelay: 0
   explosionMaxDelay: 0
-  explosionRadius: 0
-  explosionForce: 0
-  explosionDamage: 0
+  explosionRadius: 4
+  explosionForce: 400
+  explosionDamage: 3

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3428404041043898864}
   - component: {fileID: 2778083428901689667}
   - component: {fileID: 3020566288856357093}
-  - component: {fileID: 4723569301290731034}
   m_Layer: 0
   m_Name: Tile Target
   m_TagString: Target
@@ -107,23 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4723569301290731034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274319789129718798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6226a3ca0aa5bdd4e833fe30db3934f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  doorOpenDelay: 5
-  target_id: 0
-  linkedDoor: {fileID: 0}
 --- !u!1 &4230119950917459518
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,9 +118,10 @@ GameObject:
   - component: {fileID: 5158108127978823861}
   - component: {fileID: 1659995089932698633}
   - component: {fileID: 7284904068169155587}
+  - component: {fileID: 1630623412006111309}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,3 +213,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1630623412006111309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230119950917459518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6226a3ca0aa5bdd4e833fe30db3934f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  maxHealth: 1
+  doorOpenDelay: 5
+  target_id: 0
+  linkedDoor: {fileID: 0}

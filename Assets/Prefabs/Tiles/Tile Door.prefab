@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4097443823919704327}
   m_Layer: 0
   m_Name: Tile Door
-  m_TagString: Door
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5278673555590075795}
   m_Layer: 0
   m_Name: doorR
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 7389790690642055220}
   m_Layer: 0
   m_Name: doorL
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

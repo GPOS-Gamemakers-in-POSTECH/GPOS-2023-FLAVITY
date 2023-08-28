@@ -114,7 +114,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			}
 
 			//If bullet collides with "ExplosiveBarrel" tag
-			if (collision.transform.tag == "ExplosiveBarrel")
+			if (collision.transform.tag == "Explosive")
 			{
 				
 				//Toggle "explode" on explosive barrel object

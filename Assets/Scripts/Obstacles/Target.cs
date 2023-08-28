@@ -22,7 +22,7 @@ public class Target : DamagableObstacle
         validDamageType[ExplosionDamageType] = true;
 
         // Pairing door
-        GameObject[] arrayOfDoors = GameObject.FindGameObjectsWithTag("Door");
+        GameObject[] arrayOfDoors = GameObject.FindGameObjectsWithTag("Doors");
         foreach(GameObject door in arrayOfDoors)
         {
             if (door.GetComponent<SildeDoor>().door_id == target_id)

@@ -66,8 +66,6 @@ public class Explosive : DamagableObstacle
     private IEnumerator Explode() {
         // Wait for set amount of delay
         yield return new WaitForSeconds(explosionDelay);
-
-        Debug.Log(damagedExplosivePrefab);
         // Spawn the damaged explosive prefab
         Instantiate(damagedExplosivePrefab, transform.position, transform.rotation);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
@@ -77,18 +75,33 @@ public class Explosive : DamagableObstacle
 
         foreach (Collider hit in colliders)
         {
+            // Debug.Log(hit.transform.name);
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             
             // Push nearby objects with explosion force 
-            if (rb != null)
-                rb.AddExplosionForce(explosionForce * 50, explosionPosition, explosionRadius);
-            
-            // Give explosion damage to DamagableObstacles
-            if (hit.transform.tag == "Explosive" ||
+            if (rb != null && (hit.transform.tag == "Explosive" ||
                 hit.transform.tag == "Target" ||
-                hit.transform.tag == "Door")
-                hit.gameObject.GetComponent<DamagableObstacle>().receiveDamage(ExplosionDamageType, explosionDamage);
+                hit.transform.tag == "Door") && this != hit)
+                rb.AddExplosionForce(explosionForce * 50, explosionPosition, explosionRadius);
+
+            Debug.Log(hit.transform.tag);
+            // Give explosion damage to DamagableObstacles
+            if ((hit.transform.tag == "Explosive" ||
+                hit.transform.tag == "Target" ||
+                hit.transform.tag == "Door"))
+                if (hit.transform.tag == "Door"){
+                    Debug.Log("dasd");
+                    Debug.Log(hit.gameObject.transform.parent);
+                    hit.gameObject.transform.parent.gameObject.GetComponent<DamagableObstacle>().receiveDamage(ExplosionDamageType, explosionDamage);
+                }
+                else{
+                    hit.gameObject.GetComponent<DamagableObstacle>().receiveDamage(ExplosionDamageType, explosionDamage);
+                }
+        
+        
+        
         }
+
 
         /*
           // Raycast downwards to check the ground tag
