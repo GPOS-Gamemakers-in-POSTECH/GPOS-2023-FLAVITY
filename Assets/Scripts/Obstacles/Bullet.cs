@@ -82,7 +82,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
-
+			
 			//If bullet collides with "Concrete" tag
 			if (collision.transform.tag == "Concrete")
 			{

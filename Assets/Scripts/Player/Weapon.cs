@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField]
+    private Transform bulletSpawnPoint;
+    private ImpactMemoryPool ImpactMemoryPool;
+    private Camera mainCamera;
+
+
+
     [Header("Fire Effects")]
     [SerializeField]
     private GameObject muzzleFlashEffect;
@@ -27,6 +34,9 @@ public class Weapon : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponentInParent<PlayerAnimation>();
+
+        ImpactMemoryPool =GetComponent<ImpactMemoryPool>();
+        mainCamera = Camera.main;
     }
 
     // This is called whenever activated
@@ -85,6 +95,7 @@ public class Weapon : MonoBehaviour
             PlaySound(audioclipFire);
         }
 
+        TwoStepRayCast();
     }
 
     private IEnumerator OnMuzzleFlashEffect()
@@ -102,5 +113,29 @@ public class Weapon : MonoBehaviour
         audioSource.Stop();
         audioSource.clip = clip;
         audioSource.Play();
+    }
+    
+    private void TwoStepRayCast()
+    {
+        Ray ray;
+        RaycastHit hit;
+        Vector3 targetPoint = Vector3.zero;
+
+        ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
+
+        if(Physics.Raycast(ray, out hit, weaponsetting.attackDistance))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint  = ray.origin + ray.direction * weaponsetting.attackDistance;
+        }
+
+        Vector3 attackdirection = (targetPoint - bulletSpawnPoint.position).normalized;
+        if(Physics.Raycast(bulletSpawnPoint.position, attackdirection, out hit, weaponsetting.attackDistance))
+        {
+            ImpactMemoryPool.SpawnImpact(hit);
+        }
     }
 }
