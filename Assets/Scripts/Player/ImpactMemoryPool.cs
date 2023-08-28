@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public enum ImpactType { Metal = 0, Concrete, Target, ExplosiveBarrel}
