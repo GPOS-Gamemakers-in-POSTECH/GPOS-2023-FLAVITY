@@ -4,6 +4,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
+    public GameObject bullet;
+
+    [SerializeField]
     private Transform bulletSpawnPoint;
     private ImpactMemoryPool ImpactMemoryPool;
     private Camera mainCamera;
@@ -37,6 +40,7 @@ public class Weapon : MonoBehaviour
 
         ImpactMemoryPool =GetComponent<ImpactMemoryPool>();
         mainCamera = Camera.main;
+        bullet = Resources.Load("Bullet", typeof(GameObject)) as GameObject;
     }
 
     // This is called whenever activated
@@ -135,7 +139,9 @@ public class Weapon : MonoBehaviour
         Vector3 attackdirection = (targetPoint - bulletSpawnPoint.position).normalized;
         if(Physics.Raycast(bulletSpawnPoint.position, attackdirection, out hit, weaponsetting.attackDistance))
         {
-            ImpactMemoryPool.SpawnImpact(hit);
+            //ImpactMemoryPool.SpawnImpact(hit);
+            GameObject clone = Instantiate(bullet,bulletSpawnPoint.position, transform.rotation);
+            clone.GetComponent<Rigidbody>().velocity = attackdirection * 10000;
         }
     }
 }

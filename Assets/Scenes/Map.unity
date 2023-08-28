@@ -80694,7 +80694,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74104a341346b714da2193c40ac06a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactPrefab: []
+  impactPrefab:
+  - {fileID: 7360525299135955132, guid: ddce4f9938c336847bf01339725b86f5, type: 3}
+  - {fileID: 7360525299135955132, guid: ddce4f9938c336847bf01339725b86f5, type: 3}
+  - {fileID: 773195449336271061, guid: 6bcd4b17659661f4fa51d970bb767129, type: 3}
+  - {fileID: 7582874265949780595, guid: 2fe39c15f3ce7034b88d5bdda21f04ec, type: 3}
 --- !u!1 &1891653956
 GameObject:
   m_ObjectHideFlags: 0
