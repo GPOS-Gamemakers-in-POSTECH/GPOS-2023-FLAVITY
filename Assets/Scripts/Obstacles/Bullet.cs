@@ -11,9 +11,9 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 	public class Bullet : MonoBehaviour
 	{
 
-		[Range(5, 100)]
+		[Range(5, 6)]
 		[Tooltip("After how long time should the bullet prefab be destroyed?")]
-		public float destroyAfter;
+		public float destroyAfter = 5;
 
 		[Tooltip("If enabled the bullet destroys on impact")]
 		public bool destroyOnImpact = false;
@@ -44,7 +44,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
         private void Update()
         {
-			rb.AddForce(transform.forward * 10000);
+			rb.velocity = transform.forward * 10000;
+			// Debug.Log(transform.rotation.eulerAngles);
         }
 
         //If the bullet collides with anything
@@ -122,7 +123,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
-
+			Destroy(gameObject);
 		}
 
 		private IEnumerator DestroyTimer()

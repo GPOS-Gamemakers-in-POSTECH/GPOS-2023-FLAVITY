@@ -5,13 +5,12 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField]
     public GameObject bullet;
+    public Transform parent;
 
     [SerializeField]
     private Transform bulletSpawnPoint;
     private ImpactMemoryPool ImpactMemoryPool;
     private Camera mainCamera;
-
-
 
     [Header("Fire Effects")]
     [SerializeField]
@@ -41,8 +40,13 @@ public class Weapon : MonoBehaviour
         ImpactMemoryPool =GetComponent<ImpactMemoryPool>();
         mainCamera = Camera.main;
         bullet = Resources.Load("Bullet", typeof(GameObject)) as GameObject;
+        parent = transform.parent;
     }
 
+    void Update() {
+        // Debug.Log(parent.GetComponent<PlayerControl>().playerDirection.eulerAngles);
+        
+    }
     // This is called whenever activated
     private void OnEnable()
     {
@@ -125,6 +129,9 @@ public class Weapon : MonoBehaviour
         RaycastHit hit;
         Vector3 targetPoint = Vector3.zero;
 
+        GameObject clone = Instantiate(bullet, transform.position, parent.GetComponent<PlayerControl>().playerDirection);
+        // clone.GetComponent<Rigidbody>().velocity = parent.GetComponent<PlayerControl>().playerDirection.eulerAngles;
+
         ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
 
         if(Physics.Raycast(ray, out hit, weaponsetting.attackDistance))
@@ -137,11 +144,11 @@ public class Weapon : MonoBehaviour
         }
 
         Vector3 attackdirection = (targetPoint - bulletSpawnPoint.position).normalized;
+
         if(Physics.Raycast(bulletSpawnPoint.position, attackdirection, out hit, weaponsetting.attackDistance))
         {
             //ImpactMemoryPool.SpawnImpact(hit);
-            GameObject clone = Instantiate(bullet,bulletSpawnPoint.position, transform.rotation);
-            clone.GetComponent<Rigidbody>().velocity = attackdirection * 10000;
+            
         }
     }
 }

@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
     private RaycastHit hit;
 
     private float dihedralAngle;
-    private Quaternion playerDirection; // ######### NOTE: USE THIS VARIABLE TO GET CURRENT PLAYERS DIRECTION #########
+    public Quaternion playerDirection; // ######### NOTE: USE THIS VARIABLE TO GET CURRENT PLAYERS DIRECTION #########
 
     public float doubleTapTime = 0.5f;
     private float elapsedTime;
@@ -150,7 +150,7 @@ public class PlayerControl : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, dihedralAngle));
-        playerDirection = mainCamera.transform.rotation;
+        playerDirection = mainCamera.transform.localRotation;
         mouse.UpdateRotate(mouseX, mouseY, dihedralAngle);
     }
 

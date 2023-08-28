@@ -394,6 +394,7 @@ MonoBehaviour:
   maxDestroyTime: 10.1
   metalImpactPrefabs: []
   concreteImpactPrefabs: []
+  rb: {fileID: 0}
 --- !u!1 &7064790942943239356
 GameObject:
   m_ObjectHideFlags: 0
