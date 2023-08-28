@@ -28,6 +28,8 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		public Transform[] metalImpactPrefabs;
 		public Transform[] concreteImpactPrefabs;
 
+		public Rigidbody rb;
+
 		private void Start()
 		{
 
@@ -35,12 +37,18 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			concreteImpactPrefabs = new Transform[1];
 			metalImpactPrefabs[0] = (Resources.Load("P_IMP_Metal", typeof(GameObject)) as GameObject).transform;
 			concreteImpactPrefabs[0] = (Resources.Load("P_IMP_Concrete", typeof(GameObject)) as GameObject).transform;
+			rb = GetComponent<Rigidbody>();
 			//Start destroy timer
 			StartCoroutine(DestroyAfter());
 		}
 
-		//If the bullet collides with anything
-		private void OnCollisionEnter(Collision collision)
+        private void Update()
+        {
+			rb.AddForce(transform.forward * 10000);
+        }
+
+        //If the bullet collides with anything
+        private void OnCollisionEnter(Collision collision)
 		{
 			//Ignore collisions with other projectiles.
 			if (collision.gameObject.GetComponent<Projectile>() != null)
