@@ -41,7 +41,7 @@ public class ImpactMemoryPool : MonoBehaviour
         GameObject item = memoryPool[(int)type].ActivePoolItem();
         item.transform.position = position;
         item.transform.rotation = rotation;
-        item.GetComponent<Impact>().Set up(memoryPool[(int)type]);
+        item.GetComponent<Impact>().Setup(memoryPool[(int)type]);
     }
 }
 

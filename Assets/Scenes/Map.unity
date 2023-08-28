@@ -19958,7 +19958,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1454389953}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8460991838873823328, guid: b25c26e03a691ac43aba031ed2fbb8ce,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1891045395}
   m_SourcePrefab: {fileID: 100100000, guid: b25c26e03a691ac43aba031ed2fbb8ce, type: 3}
 --- !u!4 &484169329 stripped
 Transform:
@@ -80469,6 +80473,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.05
   m_ShadowAngle: 0
+--- !u!1 &1891045390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8460991838873823328, guid: b25c26e03a691ac43aba031ed2fbb8ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 484169328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1891045395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891045390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74104a341346b714da2193c40ac06a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactPrefab: []
 --- !u!1 &1891653956
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class DataManager : MonoBehaviour
     public List<Vector3> SavePoint = new List<Vector3>();
     public List<int> SaveRotate = new List<int>();
 
-    public void Awake()
+    public void Start()
     {
         SavePoint.Add(new Vector3(0, 7, -40));
         SaveRotate.Add(0);
@@ -55,17 +55,9 @@ public class DataManager : MonoBehaviour
         SaveRotate.Add(3);
     }
 
-    public void ApplyGameData()
-    {
-        MouseControl.rotCamXAxisSpeed = data.mouse / 100 * 2;
-        MouseControl.rotCamYAxisSpeed = data.mouse / 100 * 2;
-        if (data.sound == 0) audioMixer.SetFloat("Master", -80);
-        else audioMixer.SetFloat("Master", data.sound / 100 * 40 - 40);
-    }
-
     public void LoadGameData()
     {
-        string filePath = Application.persistentDataPath + "/" + GameDataFileName;
+        string filePath = Application.dataPath + "/" + GameDataFileName;
         if (File.Exists(filePath))
         {
             string FromJsonData = File.ReadAllText(filePath);
@@ -76,7 +68,7 @@ public class DataManager : MonoBehaviour
     public void SaveGameData()
     {
         string ToJsonData = JsonUtility.ToJson(data, true);
-        string filePath = Application.persistentDataPath + "/" + GameDataFileName;
+        string filePath = Application.dataPath + "/" + GameDataFileName;
 
         File.WriteAllText(filePath, ToJsonData);
     }
