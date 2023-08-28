@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6957321916701403797}
+  - component: {fileID: 7064252835799777801}
+  - component: {fileID: 4097443823919704327}
   m_Layer: 0
   m_Name: Tile Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +36,54 @@ Transform:
   - {fileID: 5453224473003744937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7064252835799777801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5706234503932739694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae0c263609422f45879bca24ec6eddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  door_id: 0
+  isOpen: 0
+  currentAngle: 0
+  moveSpeed: 20
+  openLength: 1.5
+  currentLength: 0
+  initdoorLPos: {x: 0, y: 0, z: 0}
+  initdoorRPos: {x: 0, y: 0, z: 0}
+  destdoorLPos: {x: 0, y: 0, z: 0}
+  destdoorRPos: {x: 0, y: 0, z: 0}
+  doorL: {fileID: 6251408695129435277}
+  doorR: {fileID: 6104259534652848975}
+--- !u!64 &4097443823919704327
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5706234503932739694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &6104259534652848975
 GameObject:
   m_ObjectHideFlags: 0

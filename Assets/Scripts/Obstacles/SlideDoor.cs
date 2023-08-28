@@ -37,7 +37,7 @@ public class SildeDoor : DamagableObstacle
         initdoorRPos = doorR.transform.localPosition;
 
         destdoorLPos = new Vector3(initdoorLPos.x - openLength, initdoorLPos.y, initdoorLPos.z);
-        destdoorRPos = new Vector3(initdoorLPos.x + openLength, initdoorLPos.y, initdoorLPos.z);
+        destdoorRPos = new Vector3(initdoorRPos.x + openLength, initdoorRPos.y, initdoorRPos.z);
 
         isOpen = false;
     }

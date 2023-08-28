@@ -25,7 +25,7 @@ public class Target : DamagableObstacle
         GameObject[] arrayOfDoors = GameObject.FindGameObjectsWithTag("Door");
         foreach(GameObject door in arrayOfDoors)
         {
-            if (door.GetComponent<Door>().door_id == target_id)
+            if (door.GetComponent<SildeDoor>().door_id == target_id)
             {
                 linkedDoor = door;
                 break;
@@ -44,13 +44,13 @@ public class Target : DamagableObstacle
         }
         if (linkedDoor != null)
         {
-            if (hitQueue.Count != 0 && linkedDoor.GetComponent<Door>().isOpen == false)
+            if (hitQueue.Count != 0 && linkedDoor.GetComponent<SildeDoor>().isOpen == false)
             {
-                linkedDoor.GetComponent<Door>().open();
+                linkedDoor.GetComponent<SildeDoor>().open();
             }
-            else if (hitQueue.Count == 0 && linkedDoor.GetComponent<Door>().isOpen == true)
+            else if (hitQueue.Count == 0 && linkedDoor.GetComponent<SildeDoor>().isOpen == true)
             {
-                linkedDoor.GetComponent<Door>().close();
+                linkedDoor.GetComponent<SildeDoor>().close();
             }
         }
     }
