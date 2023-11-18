@@ -128,27 +128,68 @@ public class Weapon : MonoBehaviour
         Ray ray;
         RaycastHit hit;
         Vector3 targetPoint = Vector3.zero;
-
-        GameObject clone = Instantiate(bullet, transform.position, parent.GetComponent<PlayerControl>().playerDirection);
+        Vector3 direction = mainCamera.transform.forward; // EulerAngleToDirection(mainCamera.transform.eulerAngles); // - new Vector3(0, 90, 0);
+        GameObject clone;
         // clone.GetComponent<Rigidbody>().velocity = parent.GetComponent<PlayerControl>().playerDirection.eulerAngles;
 
-        ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
+        // ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
 
-        if(Physics.Raycast(ray, out hit, weaponsetting.attackDistance))
+        if(Physics.Raycast(mainCamera.transform.position, direction, out hit, weaponsetting.attackDistance) && false)
         {
             targetPoint = hit.point;
         }
         else
         {
-            targetPoint  = ray.origin + ray.direction * weaponsetting.attackDistance;
+            targetPoint = mainCamera.transform.position + direction * weaponsetting.attackDistance; // ray.origin + ray.direction * weaponsetting.attackDistance;
         }
+        
+        Vector3 attackdirection = (targetPoint - transform.position).normalized;
+        
+        
+        clone = Instantiate(bullet, mainCamera.transform.position, Quaternion.LookRotation(attackdirection));
 
-        Vector3 attackdirection = (targetPoint - bulletSpawnPoint.position).normalized;
-
-        if(Physics.Raycast(bulletSpawnPoint.position, attackdirection, out hit, weaponsetting.attackDistance))
+        if (Physics.Raycast(bulletSpawnPoint.position, attackdirection, out hit, weaponsetting.attackDistance))
         {
             //ImpactMemoryPool.SpawnImpact(hit);
             
         }
     }
+
+    private Vector3 EulerAngleToDirection(Vector3 eulerAngle)
+    {
+        float pitch = eulerAngle.x;
+        float yaw = eulerAngle.y;
+        float roll = eulerAngle.z;
+
+        Vector3 cameraDirection = new Vector3(
+            Mathf.Cos(yaw) * Mathf.Cos(pitch),
+            Mathf.Sin(yaw) * Mathf.Cos(pitch),
+            Mathf.Sin(pitch)
+            );
+
+        cameraDirection = cameraDirection.normalized;
+        return cameraDirection;
+    }
+
+    private Vector3 DirectionToEulerAngle(Vector3 direction)
+    {
+        
+        float x = direction.x;
+        float y = direction.y;
+        float z = direction.z;
+        float pitch = Mathf.Asin(z);
+        float yaw = Mathf.Acos(x / Mathf.Cos(pitch));
+        float yaw2 = Mathf.Asin(y / Mathf.Cos(pitch));
+        Vector3 eulerAngle = new Vector3(
+            pitch * 180 / (2*Mathf.PI), 
+            yaw * 180 / (2*Mathf.PI), 
+            0
+            );
+
+        Debug.Log("AttackDirection");
+        Debug.Log(eulerAngle);
+        return eulerAngle;
+    }
 }
+
+    
