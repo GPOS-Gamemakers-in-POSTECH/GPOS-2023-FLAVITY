@@ -1,6 +1,8 @@
-# G-POS 2023 Summer Project
+# FLAVITY
 
 ## :pushpin: Description
+
+중력 반전 요소가 가미된 3D 플랫포머 게임
 
 ## :fireworks: Screenshots
 
