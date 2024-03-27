@@ -12,6 +12,13 @@
 2. 커뮤니케이션 : Notion
 3. 개발환경 : Unity 2022.3.5f1
 
+## :card_file_box: Packages
+
+- Test Framework
+- Editor Coroutine
+- Post Processing
+- Input System
+- TextMeshPro
 
 ## :hammer_and_wrench: Git
 
