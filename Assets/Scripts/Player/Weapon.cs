@@ -125,16 +125,14 @@ public class Weapon : MonoBehaviour
     
     private void TwoStepRayCast()
     {
-        Ray ray;
-        RaycastHit hit;
-        Vector3 targetPoint = Vector3.zero;
+        Vector3 targetPoint;
         Vector3 direction = mainCamera.transform.forward; // EulerAngleToDirection(mainCamera.transform.eulerAngles); // - new Vector3(0, 90, 0);
         GameObject clone;
         // clone.GetComponent<Rigidbody>().velocity = parent.GetComponent<PlayerControl>().playerDirection.eulerAngles;
 
         // ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
 
-        if(Physics.Raycast(mainCamera.transform.position, direction, out hit, weaponsetting.attackDistance) && false)
+        if(Physics.Raycast(mainCamera.transform.position, direction, out RaycastHit hit, weaponsetting.attackDistance) && false)
         {
             targetPoint = hit.point;
         }

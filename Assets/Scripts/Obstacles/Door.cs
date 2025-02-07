@@ -10,7 +10,7 @@ public class Door : DamagableObstacle
     public float moveSpeed = 20f;
     public Vector3 axis;
     public Vector3 size;
-    public void Awake()
+    public new void Awake()
     {
         base.Awake();
         // Set health

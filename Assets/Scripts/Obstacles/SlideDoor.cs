@@ -19,7 +19,7 @@ public class SildeDoor : DamagableObstacle
     public GameObject doorR;
     
 
-    public void Awake()
+    public new void Awake()
     {
         base.Awake();
         // Set health

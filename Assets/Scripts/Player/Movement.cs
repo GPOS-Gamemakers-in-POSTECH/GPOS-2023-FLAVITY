@@ -1,10 +1,7 @@
-
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-
     [SerializeField]
     private float moveSpeed;
     private Vector3 moveForce;
@@ -24,20 +21,18 @@ public class Movement : MonoBehaviour
         get => moveSpeed;
     }
 
-    private CharacterController characterController;
     private PlayerControl playerControl;
     private RaycastHit hit;
 
     private void Awake()
     {
         // Load components
-        characterController = GetComponent<CharacterController>();
         playerControl = GetComponent<PlayerControl>();
         mouseControl = GetComponent<MouseControl>();
         dihedralAngleManager = GetComponent<DihedralAngleManager>();
     }
 
-    void Update()
+    private void Update()
     {
         dihedralAngle = dihedralAngleManager.targetDihedralAngle;
         // Debug.Log(Status.isRotating);
@@ -49,7 +44,6 @@ public class Movement : MonoBehaviour
             moveForce.y += gravity * Time.deltaTime * Mathf.Cos(Rad(dihedralAngle));
             
         }
-        characterController.Move(moveForce * Time.deltaTime);
     }
 
     public void MoveTo(Vector3 direction)

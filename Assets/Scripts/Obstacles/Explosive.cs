@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using InfimaGames.LowPolyShooterPack.Legacy;
 
 public class Explosive : DamagableObstacle
 {
@@ -21,7 +19,7 @@ public class Explosive : DamagableObstacle
     public float explosionForce = 4000.0f;
     public int explosionDamage = 3;
     
-    public void Awake()
+    public new void Awake()
     {
         base.Awake();
         

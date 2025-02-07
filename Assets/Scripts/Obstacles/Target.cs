@@ -10,7 +10,7 @@ public class Target : DamagableObstacle
     public int target_id;
     public GameObject linkedDoor;
 
-    public void Awake()
+    public new void Awake()
     {
         base.Awake();
         // Set health
