@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class TitleUIControl : MonoBehaviour
 {
     public GameObject continue_button;
-    void Awake()
+    private void Awake()
     {
         // Roading Data
         DataManager.Instance.LoadGameData();
@@ -17,10 +15,10 @@ public class TitleUIControl : MonoBehaviour
         }
     }
 
-    // New Game Button - Change Scene
     public void ChangeScene()
     {
         DataManager.Instance.data.pose = 0;
+        DataManager.Instance.data.time = 0;
         SceneManager.LoadScene("Map");
     }
 

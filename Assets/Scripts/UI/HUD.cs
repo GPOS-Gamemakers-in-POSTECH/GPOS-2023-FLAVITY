@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public GameObject left, up, right;
-    Image image;
+    [SerializeField] private GameObject left, up, right;
+    [SerializeField] private TMP_Text timer;
 
-    void Start(){
-        image = GetComponent<Image>();    
-    }
-
-    void Update()
+    private void Update()
     {
-        if (Status.isRotating) 
+        DataManager.Instance.data.time += Time.deltaTime;
+        int sec = (int)DataManager.Instance.data.time % 60;
+        int min = (int)DataManager.Instance.data.time / 60;
+        timer.text = min.ToString("00") + " : " + sec.ToString("00");
+
+        if (Status.isRotating)
         {
             left.SetActive(false);
             up.SetActive(false);
