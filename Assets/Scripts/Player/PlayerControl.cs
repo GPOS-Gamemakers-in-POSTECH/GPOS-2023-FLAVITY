@@ -157,7 +157,6 @@ public class PlayerControl : MonoBehaviour
     //call movement update method
     private void UpdateMove()
     {
-        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 

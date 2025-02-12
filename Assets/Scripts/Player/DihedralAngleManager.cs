@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DihedralAngleManager : MonoSingleton<DihedralAngleManager>
+public class DihedralAngleManager : MonoBehaviour
 {
     // All dihedral angle manipulation must be operated in this script
 
@@ -13,7 +13,12 @@ public class DihedralAngleManager : MonoSingleton<DihedralAngleManager>
     private MouseControl mouseControl;
 
     private RaycastHit hit;
-    
+
+    private void Awake()
+    {
+        mouseControl = GetComponent<MouseControl>();
+    }
+
     // Update is called once per frame
     private void Update()
     {

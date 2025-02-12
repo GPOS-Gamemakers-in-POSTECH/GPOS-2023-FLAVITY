@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a53f29e7ec402d46aebb7fd8b84150e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfter: 10.05
+  destroyAfter: 6
   destroyOnImpact: 0
   minDestroyTime: 10
   maxDestroyTime: 10.1
